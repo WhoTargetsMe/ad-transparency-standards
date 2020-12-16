@@ -1,4 +1,4 @@
-# Ads Transparency Standards
+# A technical standard for ad transparency
 
 This is a modified version of Google's "Ad Transparency Spotlight" documentation (https://github.com/Ads-Transparency-Spotlight/documentation). Their project served as a reminder that we lack universal technical standards for ad transparency. 
 
