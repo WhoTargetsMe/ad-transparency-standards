@@ -11,7 +11,7 @@ There is likely other work going on in this area that we don't know about. If yo
 - In ad libraries, to create a standard format for access to ad data
 - On web pages, so people can use a variety of new, context-adding tools that read and interpret this data.
 
-## The schema and fields
+## The schema (v .1)
 
 ### `entity/details`
 
