@@ -16,6 +16,6 @@ To create:
 
 ## About
 
-These documents were created by Who Targets Me (https://whotargets.me). 
-Our start point was to combine Google's schema, which we saw as something of a start point, with our own "Gold Standard" for political ad transparency: https://whotargets.me/en/how-to-take-a-gold-standard-approach-to-political-advertising-transparency-and-policy/
-If you have suggestions, please make them here, or email us (contact@whotargets.me).
+- These documents were created by Who Targets Me (https://whotargets.me). 
+- Our start point was to combine Google's schema, which we saw as something of a start point, with our own "Gold Standard" for political ad transparency: https://whotargets.me/en/how-to-take-a-gold-standard-approach-to-political-advertising-transparency-and-policy/.
+- If you have suggestions, please make them here, or email us (contact@whotargets.me).
