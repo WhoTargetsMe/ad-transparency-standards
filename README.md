@@ -1,21 +1,14 @@
-# Ads Transparency Spotlight extension documentation
+# Ads Transparency Standards
 
-This repository contains documentation for the Ads Transparency Spotlight
-(Alpha) extension for Chrome. At this time, code will not be available in this
-repository.
+This is a modified version of Google's "Ad Transparency Spotlight" documentation (https://github.com/Ads-Transparency-Spotlight/documentation). Their project served as a reminder that we lack universal technical standards for ad transparency. 
 
-## What is this Chrome extension?
+## Goal
 
-Our new Ads Transparency Spotlight(Alpha) extension for Chrome is part of our
-ongoing initiative to give people more visibility into the data used to personalize
-ads and more control over that data. 
+To create:
+- A technical, machine-readable standard for advertising transparency that can be used by any advertising platform.
+- A means for people to build tools that add context and explanation to the ads people see.
 
 ## Table of contents
 
 - **README**
-- [Overview of the Ads Transparency Spotlight (Alpha) extension](overview.md)
-- [Implement the Ads Transparency Spotlight (Alpha) Data Disclosure schema](implement.md)
-
-## Disclaimer
-
-This is not an officially supported Google product
+- [The Ads Transparency Data Disclosure schema](implement.md)
