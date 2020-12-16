@@ -38,6 +38,12 @@ There is likely other work going on in this area that we don't know about. If yo
 - `GROUP_NOT_DISCLOSED`: Default value. Unclear if part of a group of ads.
 - `GROUP_ID`: An internal ID for all ads in the same ad group.
 
+### `ad/testing`
+
+- `TESTING_NOT_DISCLOSED`: Default value. 
+- `TESTING_NOT_USED`: The ad doesn't make use of the platform's testing capabilities.
+- `TESTING_TYPE`: Values - 'AB' or 'Multivariate'
+
 ### `ad/dates`
 
 - `DATETIME_LIVE`: When the ad started running
