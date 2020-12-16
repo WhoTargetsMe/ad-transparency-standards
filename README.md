@@ -12,3 +12,8 @@ To create:
 
 - **README**
 - [The Ads Transparency Data Disclosure schema](implement.md)
+
+## About
+
+These documents were created by Who Targets Me (https://whotargets.me). 
+If you have suggestions, please make them here, or email us (contact@whotargets.me).
