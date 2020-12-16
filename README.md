@@ -1,6 +1,6 @@
 # A technical standard for ad transparency
 
-This is a modified version of Google's "Ad Transparency Spotlight" documentation (https://github.com/Ads-Transparency-Spotlight/documentation). Their project served as a reminder that we lack universal technical standards for ad transparency, a problem we are trying to solve here. 
+This is a modified version of Google's "Ad Transparency Spotlight" documentation (https://github.com/Ads-Transparency-Spotlight/documentation). Their proposal is inadequate to cover many of the elements and areas needed to provide true transparency, particularly for political ads (which is our primary interest). However, project served as a reminder that we lack universal technical standards for ad transparency, a problem we are trying to solve here. 
 
 ## Goal
 
