@@ -18,7 +18,7 @@ There is likely other work going on in this area that we don't know about. If yo
 - `ENTITY_ID`: An internal ID for the advertiser (e.g. a pageID)
 - `ENTITY_REAL_NAME`: The name of the entity running the ad (e.g. "The Democratic Party")
 - `ENTITY_INTERNAL_NAME`: An internal name of the entity (e.g. a short url "democrats")
-- `ENTITY_WEBSITE`: The website of the entity (e.g. "https://democrats.org" - useful to de-duplicate 
+- `ENTITY_WEBSITE`: The website of the entity (e.g. "https://democrats.org" - useful to de-duplicate/unify data) 
 - `ENTITY_ELECTORAL_ID`: An (external) ID held by an electoral regulator (e.g. FEC ID)
 - `ENTITY_LEGAL_STATUS`: The legal status of the entity (e.g. individual, company, charity, political party)
 - `ENTITY_TYPE`: The type of entity (e.g. candidate, elected official, political party, non-profit, public figure etc).
