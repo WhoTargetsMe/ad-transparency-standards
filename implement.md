@@ -140,9 +140,9 @@ There is likely other work going on in this area that we don't know about. If yo
 - `DEMOGRAPHICS_GENDER`: The reach of the ad, broken down by gender.
 - `DEMOGRAPHICS_AGE`: The reach of the ad, broken down by age ranges (25-34, 35-44 etc).
 
-## Formatting the JSON messages and metadata tag
+## Formatting the JSON
 
-JSON messages should be minified and escaped. The following example applies to AdsMetadata JSON:
+JSON messages should be minified and escaped. 
 
 ```json
 {
