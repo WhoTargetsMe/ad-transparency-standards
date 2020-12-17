@@ -1,4 +1,4 @@
-# An ad transparency schema
+# The Ad Transparency Data Disclosure Schema
 
 By implementing a schema, or standard, for how ad transparency data is presented, ad platforms can increase comprehension, trust, interoperability, quality of analysis and more. 
 
