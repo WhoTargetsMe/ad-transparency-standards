@@ -1,6 +1,6 @@
-# The Ad Transparency Data Disclosure Schema
+# The Political Advertising Transparency Data Disclosure Schema
 
-By implementing a schema, or standard, for how ad transparency data is presented, ad platforms can increase comprehension, trust, interoperability, quality of analysis and more. 
+By implementing a schema, or standard, for how political advertising data is presented, ad platforms can increase comprehension, trust, interoperability, quality of analysis and more. It also reduces the costs of implementation.
 
 ## Caveat
 
@@ -8,7 +8,7 @@ There is likely other work going on in this area that we don't know about. If yo
 
 ## Ways to use the schema
 
-- In ad libraries, to create a standard format for access to ad data
+- In political advertising libraries, to create a standard format for access to ad data
 - On web pages, so people can use a variety of new, context-adding tools that read and interpret this data.
 
 ## The schema (v .1)
@@ -145,36 +145,5 @@ There is likely other work going on in this area that we don't know about. If yo
 - `DEMOGRAPHICS_NOT_DISCLOSED`: Default value. 
 - `DEMOGRAPHICS_GENDER`: The reach of the ad, broken down by gender.
 - `DEMOGRAPHICS_AGE`: The reach of the ad, broken down by age ranges (25-34, 35-44 etc).
-
-## Formatting the JSON
-
-JSON messages should be minified and escaped. 
-
-```json
-{
-  "atps": [ {
-    "id_type": "GOOGLE_ATP_ID",
-    "id": 2,
-    "name": "ATP with Google ID"
-  }, {
-    "id_type": "IAB_GVL_ID",
-    "id": 3,
-    "name": "ATP with IAB Global Vendor ID"
-  } ],
-  "advertising_platform": {
-    "id_type": "GOOGLE_ATP_ID",
-    "id": 4,
-    "name": "Some Advertising Platform"
-  },
-  "targeting_category": {
-    "geo_location_type": "APPROXIMATE",
-    "remarketing_type": "WEBSITE_VISIT",
-    "user_interests": true,
-    "user_characteristic_types": [ "GENDER", "AGE_GROUP" ],
-    "contextual": true,
-    "other": true
-  }
-}
-```
 
 
