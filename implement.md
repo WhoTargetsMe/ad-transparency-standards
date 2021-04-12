@@ -1,6 +1,6 @@
 # The Political Advertising Transparency Data Disclosure Schema
 
-By implementing a schema, or standard, for how political advertising data is presented, ad platforms can increase comprehension, trust, interoperability, quality of analysis and more. It also reduces the costs of implementation.
+By implementing a schema, or standard, for how political advertising data is presented, ad platforms can increase comprehension, trust, interoperability, quality of analysis and more. It also reduces the costs of implementation for platforms and new market entrants who are expected to meet the standard.
 
 ## Caveat
 
@@ -11,7 +11,7 @@ There is likely other work going on in this area that we don't know about. If yo
 - In political advertising libraries, to create a standard format for access to ad data
 - On web pages, so people can use a variety of new, context-adding tools that read and interpret this data.
 
-## The schema (v .1)
+## The schema (v .2)
 
 ### `entity/details`
 
@@ -23,6 +23,14 @@ There is likely other work going on in this area that we don't know about. If yo
 - `ENTITY_LEGAL_STATUS`: The legal status of the entity (e.g. individual, company, charity, political party)
 - `ENTITY_TYPE`: The type of entity (e.g. candidate, elected official, political party, non-profit, public figure etc).
 - `ENTITY_VERIFICATION_DATE`: The date the entity was verified (blank if not, or no verification programme)
+- `ENTITY_GEO_SCOPE`: Allow the entity to specify where they are active (country, region within country etc).
+
+### `entity/suspended`
+
+- `ENTITY_SUSPENDED`: Is the entity currently suspended (true/false)?
+- `ENTITY_SUSPENSION_START`: Datestamp for the start of the entity's suspension
+- `ENTITY_SUSPENSION_START`: Datestamp for the end of the entity's suspension (blank if still suspended)
+- `ENTITY_SUSPENSION_REASON`: Link to the internal rule that led to suspension
 
 ### `ad/details`
 
@@ -146,4 +154,9 @@ There is likely other work going on in this area that we don't know about. If yo
 - `DEMOGRAPHICS_GENDER`: The reach of the ad, broken down by gender.
 - `DEMOGRAPHICS_AGE`: The reach of the ad, broken down by age ranges (25-34, 35-44 etc).
 
+### `moderation/information`
 
+- `MODERATION_NOT_DISCLOSED`: Default value. 
+- `MODERATION_REVIEW_TYPE`: Automated, manual or none. Refers to the highest level of moderation an ad received (e.g. if an automated system referred it for manual review, the value is "manual"). Presented as an array: Datestamp of moderation => Moderation type. 
+- `MODERATION_3RD_PARTY_FACT_CHECK`: Presented as an array: Datestamp of check => Link to information about check
+- `MODERATION_RULE_APPLIED`: Approved ads = NULL, otherwise link to specific ruile that led to the ad not being approved.
