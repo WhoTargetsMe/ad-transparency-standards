@@ -1,4 +1,4 @@
-# The Political Advertising Transparency Data Disclosure Schema
+# The Political Advertising Transparency Data Standard
 
 By implementing a schema, or standard, for how political advertising data is presented, ad platforms can increase comprehension, trust, interoperability, quality of analysis and more. It also reduces the costs of implementation for platforms and new market entrants who are expected to meet the standard.
 
