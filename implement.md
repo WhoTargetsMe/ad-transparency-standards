@@ -35,7 +35,8 @@ There is likely other work going on in this area that we don't know about. If yo
 ### `ad/details`
 
 - `AD_ID`: An internal ID for the ad.
-- `AD_LIBRARY_URL`: A deeplink to the ad in the platform ad library.
+- `AD_LIBRARY_ENTITY_URL`: A deeplink to the entity in the platform ad library.
+- `AD_LIBRARY_AD_URL`: A deeplink to the ad in the platform ad library.
 - `AD_COPY`: All text used in the ad.
 - `AD_IMAGE_URLS`: Link(s) to the image(s) used in the ad.
 - `AD_MEDIA_URLS`: Link(s) to the media files used in the ad.
@@ -44,7 +45,7 @@ There is likely other work going on in this area that we don't know about. If yo
 ### `ad/group`
 
 - `GROUP_NOT_DISCLOSED`: Default value. Unclear if part of a group of ads.
-- `GROUP_ID`: An internal ID for all ads in the same ad group.
+- `GROUP_ID`: A shared ID for all ads in the same ad group.
 
 ### `ad/testing`
 
