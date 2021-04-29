@@ -29,7 +29,7 @@ There is likely other work going on in this area that we don't know about. If yo
 
 - `ENTITY_SUSPENDED`: Is the entity currently suspended (true/false)?
 - `ENTITY_SUSPENSION_START`: Datestamp for the start of the entity's suspension
-- `ENTITY_SUSPENSION_START`: Datestamp for the end of the entity's suspension (blank if still suspended)
+- `ENTITY_SUSPENSION_END`: Datestamp for the end of the entity's suspension (blank if still suspended)
 - `ENTITY_SUSPENSION_REASON`: Link to the internal rule that led to suspension
 
 ### `ad/details`
