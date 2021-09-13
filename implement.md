@@ -38,6 +38,8 @@ There is likely other work going on in this area that we don't know about. If yo
 - `AD_LIBRARY_ENTITY_URL`: A deeplink to the entity in the platform ad library.
 - `AD_LIBRARY_AD_URL`: A deeplink to the ad in the platform ad library.
 - `AD_COPY`: All text used in the ad.
+- `AD_ALT_TEXT`: All alt text used in images.
+- `AD_TRANSCRIPT`: Transcript/subtitles for audio or video ads.
 - `AD_IMAGE_URLS`: Link(s) to the image(s) used in the ad.
 - `AD_MEDIA_URLS`: Link(s) to the media files used in the ad.
 - `AD_URLS`: The URLs used in the ad.
