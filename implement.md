@@ -2,13 +2,9 @@
 
 By implementing a schema, or standard, for how political advertising data is presented, ad platforms can increase comprehension, trust, interoperability, quality of analysis and more. It also reduces the costs of implementation for platforms and new market entrants who are expected to meet the standard.
 
-## Caveat
-
-There is likely other work going on in this area that we don't know about. If you're working on it, or know of another relevant initiative, please get in touch.
-
 ## Ways to use the schema
 
-- In political advertising libraries, to create a standard format for access to ad data
+- In political advertising libraries, to create and offer a standard format for access to political advertising data
 - On web pages, so people can use a variety of new, context-adding tools that read and interpret this data.
 
 ## The schema (v .2)
@@ -136,8 +132,10 @@ There is likely other work going on in this area that we don't know about. If yo
 ### `reach/impressions`
 
 - `IMPRESSIONS_NOT_DISCLOSED`: Default value. 
-- `IMPRESSIONS_LOWER_BOUND`: Lower bound of the number of ad impressions delivered.
-- `IMPRESSIONS_UPPER_BOUND`: Upper bound of the number of ad impressions delivered.
+- `IMPRESSIONS_PAID_LOWER_BOUND`: Lower bound of the number of paid ad impressions delivered.
+- `IMPRESSIONS_PAID_UPPER_BOUND`: Upper bound of the number of paid ad impressions delivered.
+- `IMPRESSIONS_ORGANIC_LOWER_BOUND`: Lower bound of the number of non-paid (e.g. via shares) ad impressions delivered.
+- `IMPRESSIONS_ORGANIC_UPPER_BOUND`: Upper bound of the number of non-paid (e.g. via shares) ad impressions delivered.
 
 ### `reach/unique_users`
 
@@ -162,4 +160,4 @@ There is likely other work going on in this area that we don't know about. If yo
 - `MODERATION_NOT_DISCLOSED`: Default value. 
 - `MODERATION_REVIEW_TYPE`: Automated, manual or none. Refers to the highest level of moderation an ad received (e.g. if an automated system referred it for manual review, the value is "manual"). Presented as an array: Datestamp of moderation => Moderation type. 
 - `MODERATION_3RD_PARTY_FACT_CHECK`: Presented as an array: Datestamp of check => Link to information about check
-- `MODERATION_RULE_APPLIED`: Approved ads = NULL, otherwise link to specific ruile that led to the ad not being approved.
+- `MODERATION_RULE_APPLIED`: Approved ads = NULL, otherwise link to or description of specific ruile that led to the ad not being approved.
