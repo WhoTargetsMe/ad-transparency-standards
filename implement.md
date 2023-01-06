@@ -25,7 +25,7 @@ By implementing a schema, or standard, for how political advertising data is pre
 
 - `ENTITY_SUSPENDED`: Is the entity currently suspended (true/false)?
 - `ENTITY_SUSPENSION_START`: Datestamp for the start of the entity's suspension
-- `ENTITY_SUSPENSION_START`: Datestamp for the end of the entity's suspension (blank if still suspended)
+- `ENTITY_SUSPENSION_END`: Datestamp for the end of the entity's suspension (blank if still suspended)
 - `ENTITY_SUSPENSION_REASON`: Link to the internal rule that led to suspension
 
 ### `ad/details`
