@@ -39,6 +39,8 @@ By implementing a schema, or standard, for how political advertising data is pre
 - `AD_IMAGE_URLS`: Link(s) to the image(s) used in the ad.
 - `AD_MEDIA_URLS`: Link(s) to the media files used in the ad.
 - `AD_URLS`: The URLs used in the ad.
+- `AD_AUTOMATION`: What, if any, features of the ad were automated/automatically generated?
+- `AD_AUTOMATION_TEST_RESULT`: How did this ad perform relative to others it was tested against?
 
 ### `ad/group`
 
@@ -49,7 +51,7 @@ By implementing a schema, or standard, for how political advertising data is pre
 
 - `TESTING_NOT_DISCLOSED`: Default value. 
 - `TESTING_NOT_USED`: The ad doesn't make use of the platform's testing capabilities.
-- `TESTING_TYPE`: Values - 'AB' or 'Multivariate'
+- `TESTING_TYPE`: Values - 'AB', 'Multivariate', 'ML' etc.
 
 ### `ad/dates`
 
