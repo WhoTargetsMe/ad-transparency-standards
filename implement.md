@@ -23,10 +23,9 @@ By implementing a schema, or standard, for how political advertising data is pre
 
 ### `entity/suspended`
 
-- `ENTITY_SUSPENDED`: Is the entity currently suspended (true/false)?
-- `ENTITY_SUSPENSION_START`: Datestamp for the start of the entity's suspension
-- `ENTITY_SUSPENSION_START`: Datestamp for the end of the entity's suspension (blank if still suspended)
-- `ENTITY_SUSPENSION_REASON`: Link to the internal rule that led to suspension
+- `ENTITY_SUSPENSION_START`: Datestamp for the start of the entity's suspension(s)
+- `ENTITY_SUSPENSION_START`: Datestamp for the end of the entity's suspension(s) (blank if currently suspended)
+- `ENTITY_SUSPENSION_REASON`: Link to the internal rule(s) that led to suspension(s)
 
 ### `ad/details`
 
@@ -41,6 +40,7 @@ By implementing a schema, or standard, for how political advertising data is pre
 - `AD_URLS`: The URLs used in the ad.
 - `AD_AUTOMATION`: What, if any, features of the ad were automated/automatically generated?
 - `AD_AUTOMATION_TEST_RESULT`: How did this ad perform relative to others it was tested against?
+- `AD_DELETED`: TRUE if the advertiser later deleted the ad after it ran.
 
 ### `ad/group`
 
@@ -52,6 +52,7 @@ By implementing a schema, or standard, for how political advertising data is pre
 - `TESTING_NOT_DISCLOSED`: Default value. 
 - `TESTING_NOT_USED`: The ad doesn't make use of the platform's testing capabilities.
 - `TESTING_TYPE`: Values - 'AB', 'Multivariate', 'ML' etc.
+- `TESTING_TEST_SET`: A value to associate each tested variation with others in the same set.
 
 ### `ad/dates`
 
@@ -80,7 +81,8 @@ By implementing a schema, or standard, for how political advertising data is pre
 
 - `REMARKETING_NOT_DISCLOSED`: Default value. Unclear whether remarketing is used.
 - `REMARKETING_NOT_USED`: Remarketing not used.
-- `REMARKETING_THIRD PARTY`: The ad targeting is based on online or offline data about you from someone who may not be the advertiser. Value is the name of the third party.
+- `REMARKETING_THIRD PARTY`: The ad targeting is based on online or offline data about you from someone who may or may not be the advertiser. Value is the name of this entity.
+- `REMARKETING_DATASET_NAME`: A name given to the dataset by the entity above. For example 'Potential customers'.
 - `REMARKETING_WEBSITE_VISIT`: The ad targeting is based on a previous visit to an advertiser’s website.
 - `REMARKETING_EXCLUSIONS`: Any remarketing exclusions.
 - `REMARKETING_UNKNOWN_TYPE- `: Other remarketing types not listed or undetermined. For example, `UPLOADED` or `WEBSITE_VISIT` cannot be determined.
@@ -149,13 +151,14 @@ By implementing a schema, or standard, for how political advertising data is pre
 
 - `ENGAGEMENT_NOT_DISCLOSED`: Default value. 
 - `ENGAGEMENT_CLICKS`: The number of clicks on the ad.
-- `ENGAGEMENT_SOCIAL`: The social engagement with the ad.
+- `ENGAGEMENT_SOCIAL`: The social engagement with the ad, presented as an array (likes/shares/comments if these features are available).
 
 ### `reach/demographics`
 
 - `DEMOGRAPHICS_NOT_DISCLOSED`: Default value. 
 - `DEMOGRAPHICS_GENDER`: The reach of the ad, broken down by gender.
 - `DEMOGRAPHICS_AGE`: The reach of the ad, broken down by age ranges (25-34, 35-44 etc).
+- `DEMOGRAPHICS_LOCATION`: The reach of the ad, broken down by country and geographical area.
 
 ### `moderation/information`
 
