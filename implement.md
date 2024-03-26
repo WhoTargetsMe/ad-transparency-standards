@@ -59,7 +59,7 @@ By implementing a schema, or standard, for how political advertising data is pre
 - `DATETIME_LIVE`: When the ad started running
 - `DATETIME_ENDED`: When the ad stopped running (blank if still delivering impressions and budget not exhausted)
 - `DATETIME_APPROVED`: The date and time the ad was approved to run.
-- `DATETIME_CREATED`: When the ad started running
+- `DATETIME_CREATED`: When the ad was created
 
 ### `advertising_platform/id_type`
 
@@ -124,7 +124,8 @@ By implementing a schema, or standard, for how political advertising data is pre
 ### `spending/details`
 
 - `SPENDING_NOT_DISCLOSED`: Default value. 
-- `SPENDING_TOTAL`: The exact amount spent on the ad. 
+- `SPENDING_TOTAL`: The exact amount spent on the ad.
+- `SPENDING_BUDGET`: The total budget for the ad at time of creation
 - `SPENDING_LOWER_BOUND`: The lower bound of spending on the ad (e.g. $500).
 - `SPENDING_UPPER_BOUND`: The higher bound of spending on the ad (e.g. $600).
 
