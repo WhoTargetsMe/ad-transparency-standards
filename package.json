@@ -1,0 +1,20 @@
+{
+  "name": "@whotargetsme/ad-transparency-standards",
+  "version": "1.0.0",
+  "description": "This is a modified version of [Google's \"Ad Transparency Spotlight\" documentation](https://github.com/Ads-Transparency-Spotlight/documentation). Their proposal is inadequate to cover many of the elements and areas needed to provide true transparency, particularly for political ads (which is the primary interest of Who Targets Me). However, their project served as a reminder that we lack universal technical standards for ad transparency, a problem we are trying to solve with this proposal.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WhoTargetsMe/ad-transparency-standards.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WhoTargetsMe/ad-transparency-standards/issues"
+  },
+  "homepage": "https://github.com/WhoTargetsMe/ad-transparency-standards#readme"
+}

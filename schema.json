@@ -1,0 +1,619 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Political Advertising Transparency Data Standard",
+    "description": "A schema for how political advertising data is presented to increase comprehension, trust, interoperability, and quality of analysis.",
+    "type": "object",
+    "properties": {
+        "entity": {
+            "type": "object",
+            "properties": {
+                "details": {
+                    "type": "object",
+                    "properties": {
+                        "ENTITY_ID": {
+                            "description": "An internal ID for the advertiser (e.g. a pageID)",
+                            "type": "string"
+                        },
+                        "ENTITY_REAL_NAME": {
+                            "description": "The name of the entity running the ad (e.g. \"The Democratic Party\")",
+                            "type": "string"
+                        },
+                        "ENTITY_INTERNAL_NAME": {
+                            "description": "An internal name of the entity (e.g. a short url \"democrats\")",
+                            "type": "string"
+                        },
+                        "ENTITY_WEBSITE": {
+                            "description": "The website of the entity (e.g. \"https://democrats.org\" - useful to de-duplicate/unify data)",
+                            "type": "string",
+                            "format": "uri"
+                        },
+                        "ENTITY_ELECTORAL_ID": {
+                            "description": "An (external) ID held by an electoral regulator (e.g. FEC ID)",
+                            "type": "string"
+                        },
+                        "ENTITY_LEGAL_STATUS": {
+                            "description": "The legal status of the entity (e.g. individual, company, charity, political party)",
+                            "type": "string"
+                        },
+                        "ENTITY_TYPE": {
+                            "description": "The type of entity (e.g. candidate, elected official, political party, non-profit, public figure etc)",
+                            "type": "string"
+                        },
+                        "ENTITY_VERIFICATION_DATE": {
+                            "description": "The date the entity was verified (blank if not, or no verification programme)",
+                            "type": "string",
+                            "format": "date"
+                        },
+                        "ENTITY_GEO_SCOPE": {
+                            "description": "Allow the entity to specify where they are active (country, region within country etc)",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "ENTITY_ID",
+                        "ENTITY_REAL_NAME",
+                        "ENTITY_WEBSITE"
+                    ]
+                },
+                "suspended": {
+                    "type": "object",
+                    "properties": {
+                        "ENTITY_SUSPENSION_START": {
+                            "description": "Datestamp for the start of the entity's suspension(s)",
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "ENTITY_SUSPENSION_END": {
+                            "description": "Datestamp for the end of the entity's suspension(s) (blank if currently suspended)",
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "ENTITY_SUSPENSION_REASON": {
+                            "description": "Link to the internal rule(s) that led to suspension(s)",
+                            "type": "string",
+                            "format": "uri"
+                        }
+                    }
+                }
+            }
+        },
+        "advertisement": {
+            "type": "object",
+            "properties": {
+                "details": {
+                    "type": "object",
+                    "properties": {
+                        "AD_ID": {
+                            "description": "An internal ID for the ad",
+                            "type": "string"
+                        },
+                        "AD_LIBRARY_ENTITY_URL": {
+                            "description": "A deeplink to the entity in the platform ad library",
+                            "type": "string",
+                            "format": "uri"
+                        },
+                        "AD_LIBRARY_AD_URL": {
+                            "description": "A deeplink to the ad in the platform ad library",
+                            "type": "string",
+                            "format": "uri"
+                        },
+                        "AD_COPY": {
+                            "description": "All text used in the ad",
+                            "type": "string"
+                        },
+                        "AD_ALT_TEXT": {
+                            "description": "All alt text used in images. Can be automatically generated by the ad publisher",
+                            "type": "string"
+                        },
+                        "AD_TRANSCRIPT": {
+                            "description": "An automated or user-provided transcript/subtitles for audio or video ads",
+                            "type": "string"
+                        },
+                        "AD_MEDIA_URLS": {
+                            "description": "Link(s) to the media files used in the ad",
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "format": "uri"
+                            }
+                        },
+                        "AD_URLS": {
+                            "description": "The external URLs used in the ad (e.g. where the ad clicks through to)",
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "format": "uri"
+                            }
+                        },
+                        "AD_AUTOMATION": {
+                            "description": "What, if any, features of the ad were automated/automatically generated?",
+                            "type": "string"
+                        },
+                        "AD_AUTOMATION_TEST_RESULT": {
+                            "description": "How did this ad perform relative to others it was tested against?",
+                            "type": "string"
+                        },
+                        "AD_DELETED": {
+                            "description": "TRUE if the advertiser later deleted the ad after it ran",
+                            "type": "boolean"
+                        }
+                    },
+                    "required": [
+                        "AD_ID"
+                    ]
+                },
+                "group": {
+                    "type": "object",
+                    "properties": {
+                        "GROUP_NOT_DISCLOSED": {
+                            "description": "Default value. Unclear if part of a group of ads",
+                            "type": "boolean",
+                            "default": true
+                        },
+                        "GROUP_ID": {
+                            "description": "A shared ID for all ads in the same ad group",
+                            "type": "string"
+                        }
+                    }
+                },
+                "testing": {
+                    "type": "object",
+                    "properties": {
+                        "TESTING_NOT_DISCLOSED": {
+                            "description": "Default value",
+                            "type": "boolean",
+                            "default": true
+                        },
+                        "TESTING_NOT_USED": {
+                            "description": "The ad doesn't make use of the platform's testing capabilities",
+                            "type": "boolean"
+                        },
+                        "TESTING_TYPE": {
+                            "description": "Values - 'AB', 'Multivariate', 'ML' etc.",
+                            "type": "string"
+                        },
+                        "TESTING_TEST_SET": {
+                            "description": "A value to associate each tested variation with others in the same set",
+                            "type": "string"
+                        }
+                    }
+                },
+                "dates": {
+                    "type": "object",
+                    "properties": {
+                        "DATETIME_LIVE": {
+                            "description": "When the ad started running",
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "DATETIME_ENDED": {
+                            "description": "When the ad stopped running (blank if still delivering impressions and budget not exhausted)",
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "DATETIME_APPROVED": {
+                            "description": "The date and time the ad was approved to run",
+                            "type": "string",
+                            "format": "date-time"
+                        },
+                        "DATETIME_CREATED": {
+                            "description": "When the ad was created",
+                            "type": "string",
+                            "format": "date-time"
+                        }
+                    }
+                }
+            }
+        },
+        "advertising_platform": {
+            "type": "object",
+            "properties": {
+                "id_type": {
+                    "type": "object",
+                    "properties": {
+                        "PLATFORM_NAME": {
+                            "description": "The name of the ad platform",
+                            "type": "string"
+                        },
+                        "PLATFORM_URL": {
+                            "description": "The URL of the ad platform",
+                            "type": "string",
+                            "format": "uri"
+                        },
+                        "PLATFORM_AD_POLICY": {
+                            "description": "The public URL of the platform's ad policies and rules",
+                            "type": "string",
+                            "format": "uri"
+                        },
+                        "IAB_ID": {
+                            "description": "IAB ID for ad technology providers. For more details read the IAB's website \"TCF – Transparency & Consent Framework\"",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "PLATFORM_NAME",
+                        "PLATFORM_URL"
+                    ]
+                }
+            }
+        },
+        "targeting_category": {
+            "type": "object",
+            "properties": {
+                "geo_location": {
+                    "type": "object",
+                    "properties": {
+                        "GEO_LOCATION_NOT_DISCLOSED": {
+                            "description": "Default value. Unclear whether geolocation data was used",
+                            "type": "boolean",
+                            "default": true
+                        },
+                        "GEO_LOCATION_NOT_USED": {
+                            "description": "Geolocation data wasn’t used",
+                            "type": "boolean"
+                        },
+                        "GEO_LOCATION_APPROXIMATE": {
+                            "description": "Geolocation data is based on either fuzzified lat-long or IP-derived location",
+                            "type": "boolean"
+                        },
+                        "GEO_LOCATION_PRECISE": {
+                            "description": "Precise geolocation data, as defined by the IAB TCF v2.0",
+                            "type": "boolean"
+                        },
+                        "GEO_LOCATION_EXCLUDED": {
+                            "description": "Any geographic exclusions",
+                            "type": "string"
+                        },
+                        "GEO_LOCATION_UNKNOWN_TYPE": {
+                            "description": "Other geolocation types, including cases where both APPROXIMATE and PRECISE are used or where APPROXIMATE or PRECISE cannot be determined",
+                            "type": "string"
+                        }
+                    }
+                },
+                "remarketing": {
+                    "type": "object",
+                    "properties": {
+                        "REMARKETING_NOT_DISCLOSED": {
+                            "description": "Default value. Unclear whether remarketing is used",
+                            "type": "boolean",
+                            "default": true
+                        },
+                        "REMARKETING_NOT_USED": {
+                            "description": "Remarketing not used",
+                            "type": "boolean"
+                        },
+                        "REMARKETING_THIRD_PARTY": {
+                            "description": "The ad targeting is based on online or offline data about you from someone who may or may not be the advertiser. Value is the name of this entity",
+                            "type": "string"
+                        },
+                        "REMARKETING_DATASET_NAME": {
+                            "description": "A name given to the dataset by the entity above. For example 'Potential customers'",
+                            "type": "string"
+                        },
+                        "REMARKETING_WEBSITE_VISIT": {
+                            "description": "The ad targeting is based on a previous visit to an advertiser’s website",
+                            "type": "boolean"
+                        },
+                        "REMARKETING_EXCLUSIONS": {
+                            "description": "Any remarketing exclusions",
+                            "type": "string"
+                        },
+                        "REMARKETING_UNKNOWN_TYPE": {
+                            "description": "Other remarketing types not listed or undetermined. For example, UPLOADED or WEBSITE_VISIT cannot be determined",
+                            "type": "string"
+                        }
+                    }
+                },
+                "user_characteristics": {
+                    "type": "object",
+                    "properties": {
+                        "USER_CHARACTERISTICS_NOT_USED": {
+                            "description": "User characteristics weren’t used",
+                            "type": "boolean"
+                        },
+                        "USER_CHARACTERISTICS_GENDER": {
+                            "description": "The ad targeting criteria is (partially) based on either declared or inferred gender",
+                            "type": "boolean"
+                        },
+                        "USER_CHARACTERISTICS_AGE_GROUP": {
+                            "description": "The ad targeting criteria is (partially) based on either declared or inferred age group",
+                            "type": "boolean"
+                        },
+                        "USER_CHARACTERISTICS_LANGUAGES": {
+                            "description": "The ad targeting criteria is (partially) based on either declared or inferred user language(s)",
+                            "type": "boolean"
+                        },
+                        "USER_CHARACTERISTICS_EXCLUSIONS": {
+                            "description": "Any exclusions based on user characteristics",
+                            "type": "string"
+                        },
+                        "USER_CHARACTERISTICS_UNKNOWN_TYPE": {
+                            "description": "Other user characteristics not listed",
+                            "type": "string"
+                        }
+                    }
+                },
+                "user_interests": {
+                    "type": "object",
+                    "properties": {
+                        "USER_INTERESTS_NOT_DISCLOSED": {
+                            "description": "Default value. Unclear whether user interests are used",
+                            "type": "boolean",
+                            "default": true
+                        },
+                        "USER_INTERESTS_NOT_USED": {
+                            "description": "User interests weren’t used",
+                            "type": "boolean"
+                        },
+                        "USER_INTERESTS_EXCLUDED": {
+                            "description": "User interests that were excluded from targeting",
+                            "type": "string"
+                        },
+                        "USER_INTERESTS_USED": {
+                            "description": "The ad targeting criteria is (partially) based on either declared or inferred user interests",
+                            "type": "string"
+                        }
+                    }
+                },
+                "context": {
+                    "type": "object",
+                    "properties": {
+                        "CONTEXT_NOT_DISCLOSED": {
+                            "description": "Default value. Unclear whether context is used",
+                            "type": "boolean",
+                            "default": true
+                        },
+                        "CONTEXT_NOT_USED": {
+                            "description": "Context wasn’t used",
+                            "type": "boolean"
+                        },
+                        "CONTEXT_USED": {
+                            "description": "The ad targeting criteria is (partially) based on either declared or inferred context. Value is the context(s), such as the website(s) or networks being targeted",
+                            "type": "string"
+                        }
+                    }
+                },
+                "other": {
+                    "type": "object",
+                    "properties": {
+                        "OTHER_NOT_DISCLOSED": {
+                            "description": "Default value. Unclear whether other information is used",
+                            "type": "boolean",
+                            "default": true
+                        },
+                        "OTHER_NOT_USED": {
+                            "description": "Other information wasn’t used",
+                            "type": "boolean"
+                        },
+                        "OTHER_USED": {
+                            "description": "The ad targeting criteria is (partially) based on other information, either declared or inferred",
+                            "type": "string"
+                        }
+                    }
+                },
+                "audience_size": {
+                    "type": "object",
+                    "properties": {
+                        "AUDIENCE_SIZE_NOT_DISCLOSED": {
+                            "description": "Default value",
+                            "type": "boolean",
+                            "default": true
+                        },
+                        "AUDIENCE_SIZE_LOWER_BOUND": {
+                            "description": "Lower bound of the estimated target audience size",
+                            "type": "number"
+                        },
+                        "AUDIENCE_SIZE_UPPER_BOUND": {
+                            "description": "Upper bound of the estimated target audience size",
+                            "type": "number"
+                        }
+                    }
+                }
+            }
+        },
+        "spending": {
+            "type": "object",
+            "properties": {
+                "details": {
+                    "type": "object",
+                    "properties": {
+                        "SPENDING_NOT_DISCLOSED": {
+                            "description": "Default value",
+                            "type": "boolean",
+                            "default": true
+                        },
+                        "SPENDING_TOTAL": {
+                            "description": "The exact amount spent on the ad",
+                            "type": "number"
+                        },
+                        "SPENDING_BUDGET": {
+                            "description": "The total budget for the ad at time of creation",
+                            "type": "number"
+                        },
+                        "SPENDING_LOWER_BOUND": {
+                            "description": "The lower bound of spending on the ad (e.g. $500)",
+                            "type": "number"
+                        },
+                        "SPENDING_UPPER_BOUND": {
+                            "description": "The higher bound of spending on the ad (e.g. $600)",
+                            "type": "number"
+                        }
+                    }
+                }
+            }
+        },
+        "delivery": {
+            "type": "object",
+            "properties": {
+                "details": {
+                    "type": "object",
+                    "properties": {
+                        "DELIVERY_NOT_DISCLOSED": {
+                            "description": "Default value",
+                            "type": "boolean",
+                            "default": true
+                        },
+                        "DELIVERY_OPTIMIZATION": {
+                            "description": "The delivery optimization method selected by the advertiser",
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "reach": {
+            "type": "object",
+            "properties": {
+                "impressions": {
+                    "type": "object",
+                    "properties": {
+                        "IMPRESSIONS_NOT_DISCLOSED": {
+                            "description": "Default value",
+                            "type": "boolean",
+                            "default": true
+                        },
+                        "IMPRESSIONS_PAID_LOWER_BOUND": {
+                            "description": "Lower bound of the number of paid ad impressions delivered",
+                            "type": "number"
+                        },
+                        "IMPRESSIONS_PAID_UPPER_BOUND": {
+                            "description": "Upper bound of the number of paid ad impressions delivered",
+                            "type": "number"
+                        },
+                        "IMPRESSIONS_ORGANIC_LOWER_BOUND": {
+                            "description": "Lower bound of the number of non-paid (e.g. via shares) ad impressions delivered",
+                            "type": "number"
+                        },
+                        "IMPRESSIONS_ORGANIC_UPPER_BOUND": {
+                            "description": "Upper bound of the number of non-paid (e.g. via shares) ad impressions delivered",
+                            "type": "number"
+                        }
+                    }
+                },
+                "unique_users": {
+                    "type": "object",
+                    "properties": {
+                        "UNIQUE_USERS_NOT_DISCLOSED": {
+                            "description": "Default value",
+                            "type": "boolean",
+                            "default": true
+                        },
+                        "UNIQUE_USERS_LOWER_BOUND": {
+                            "description": "Lower bound of the number of unique users who saw > 1 impression of the ad",
+                            "type": "number"
+                        },
+                        "UNIQUE_USERS_UPPER_BOUND": {
+                            "description": "Upper bound of the number of unique users who saw > 1 impression of the ad",
+                            "type": "number"
+                        }
+                    }
+                },
+                "engagement": {
+                    "type": "object",
+                    "properties": {
+                        "ENGAGEMENT_NOT_DISCLOSED": {
+                            "description": "Default value",
+                            "type": "boolean",
+                            "default": true
+                        },
+                        "ENGAGEMENT_CLICKS": {
+                            "description": "The number of clicks on the ad",
+                            "type": "number"
+                        },
+                        "ENGAGEMENT_SOCIAL": {
+                            "description": "The social engagement with the ad, presented as an array (likes/shares/comments if these features are available)",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "demographics": {
+                    "type": "object",
+                    "properties": {
+                        "DEMOGRAPHICS_NOT_DISCLOSED": {
+                            "description": "Default value",
+                            "type": "boolean",
+                            "default": true
+                        },
+                        "DEMOGRAPHICS_GENDER": {
+                            "description": "The reach of the ad, broken down by gender",
+                            "type": "string"
+                        },
+                        "DEMOGRAPHICS_AGE": {
+                            "description": "The reach of the ad, broken down by age ranges (25-34, 35-44 etc)",
+                            "type": "string"
+                        },
+                        "DEMOGRAPHICS_LOCATION": {
+                            "description": "The reach of the ad, broken down by country and geographical area",
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "moderation": {
+            "type": "object",
+            "properties": {
+                "information": {
+                    "type": "object",
+                    "properties": {
+                        "MODERATION_NOT_DISCLOSED": {
+                            "description": "Default value",
+                            "type": "boolean",
+                            "default": true
+                        },
+                        "MODERATION_REVIEW_TYPE": {
+                            "description": "Automated, manual or none. Refers to the highest level of moderation an ad received (e.g. if an automated system referred it for manual review, the value is \"manual\"). Presented as an array: Datestamp of moderation => Moderation type",
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "datestamp": {
+                                        "type": "string",
+                                        "format": "date-time"
+                                    },
+                                    "type": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        },
+                        "MODERATION_3RD_PARTY_FACT_CHECK": {
+                            "description": "Presented as an array: Datestamp of check => Link to information about check",
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "datestamp": {
+                                        "type": "string",
+                                        "format": "date-time"
+                                    },
+                                    "link": {
+                                        "type": "string",
+                                        "format": "uri"
+                                    }
+                                }
+                            }
+                        },
+                        "MODERATION_RULE_APPLIED": {
+                            "description": "Approved ads = NULL, otherwise link to or description of specific ruile that led to the ad not being approved",
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "required": [
+        "entity",
+        "ad",
+        "advertising_platform",
+        "targeting_category",
+        "spending",
+        "delivery",
+        "reach",
+        "moderation"
+    ]
+}
