@@ -305,15 +305,15 @@
                         },
                         "USER_CHARACTERISTICS_GENDER": {
                             "description": "The ad targeting criteria is (partially) based on either declared or inferred gender",
-                            "type": "boolean"
+                            "type": "string"
                         },
                         "USER_CHARACTERISTICS_AGE_GROUP": {
                             "description": "The ad targeting criteria is (partially) based on either declared or inferred age group",
-                            "type": "boolean"
+                            "type": "string"
                         },
                         "USER_CHARACTERISTICS_LANGUAGES": {
                             "description": "The ad targeting criteria is (partially) based on either declared or inferred user language(s)",
-                            "type": "boolean"
+                            "type": "string"
                         },
                         "USER_CHARACTERISTICS_EXCLUSIONS": {
                             "description": "Any exclusions based on user characteristics",
