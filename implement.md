@@ -70,7 +70,6 @@ By implementing a schema, or standard, for how political advertising data is pre
 ### `targeting_category/geo_location`
 
 - `GEO_LOCATION_NOT_DISCLOSED`: Default value. Unclear whether geolocation data was used.
-- `GEO_LOCATION_NOT_USED`: Geolocation data wasn’t used.
 - `GEO_LOCATION_APPROXIMATE`: Geolocation data is based on either fuzzified lat-long or IP-derived location.
 - `GEO_LOCATION_PRECISE`: Precise geolocation data, as defined by the IAB TCF v2.0.
 - `GEO_LOCATION_EXCLUDED`: Any geographic exclusions.
@@ -79,7 +78,6 @@ By implementing a schema, or standard, for how political advertising data is pre
 ### `targeting_category/remarketing`
 
 - `REMARKETING_NOT_DISCLOSED`: Default value. Unclear whether remarketing is used.
-- `REMARKETING_NOT_USED`: Remarketing not used.
 - `REMARKETING_THIRD PARTY`: The ad targeting is based on online or offline data about you from someone who may or may not be the advertiser. Value is the name of this entity.
 - `REMARKETING_DATASET_NAME`: A name given to the dataset by the entity above. For example 'Potential customers'.
 - `REMARKETING_WEBSITE_VISIT`: The ad targeting is based on a previous visit to an advertiser’s website.
@@ -98,20 +96,17 @@ By implementing a schema, or standard, for how political advertising data is pre
 ### `targeting_category/user_interests`
 
 - `USER_INTERESTS_NOT_DISCLOSED`: Default value. Unclear whether user interests are used.
-- `USER_INTERESTS_NOT_USED`: User interests weren’t used.
 - `USER_INTERESTS_EXCLUDED`: User interests that were excluded from targeting.
 - `USER_INTERESTS_USED`: The ad targeting criteria is (partially) based on either declared or inferred user interests.
 
 ### `targeting_category/context`
 
 - `CONTEXT_NOT_DISCLOSED`: Default value. Unclear whether context is used.
-- `CONTEXT_NOT_USED`: Context wasn’t used.
 - `CONTEXT_USED`: The ad targeting criteria is (partially) based on either declared or inferred context. Value is the context(s), such as the website(s) or networks being targeted.
 
 ### `targeting_category/other`
 
 - `OTHER_NOT_DISCLOSED`: Default value. Unclear whether other information is used.
-- `OTHER_NOT_USED`: Other information wasn’t used.
 - `OTHER_USED`: The ad targeting criteria is (partially) based on other information, either declared or inferred.
 
 ### `targeting_category/audience_size`

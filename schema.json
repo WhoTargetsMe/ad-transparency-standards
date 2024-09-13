@@ -248,10 +248,6 @@
                             "type": "boolean",
                             "default": true
                         },
-                        "GEO_LOCATION_NOT_USED": {
-                            "description": "Geolocation data wasn’t used",
-                            "type": "boolean"
-                        },
                         "GEO_LOCATION_APPROXIMATE": {
                             "description": "Geolocation data is based on either fuzzified lat-long or IP-derived location",
                             "type": "boolean"
@@ -277,10 +273,6 @@
                             "description": "Default value. Unclear whether remarketing is used",
                             "type": "boolean",
                             "default": true
-                        },
-                        "REMARKETING_NOT_USED": {
-                            "description": "Remarketing not used",
-                            "type": "boolean"
                         },
                         "REMARKETING_THIRD_PARTY": {
                             "description": "The ad targeting is based on online or offline data about you from someone who may or may not be the advertiser. Value is the name of this entity",
@@ -341,10 +333,6 @@
                             "type": "boolean",
                             "default": true
                         },
-                        "USER_INTERESTS_NOT_USED": {
-                            "description": "User interests weren’t used",
-                            "type": "boolean"
-                        },
                         "USER_INTERESTS_EXCLUDED": {
                             "description": "User interests that were excluded from targeting",
                             "type": "string"
@@ -363,10 +351,6 @@
                             "type": "boolean",
                             "default": true
                         },
-                        "CONTEXT_NOT_USED": {
-                            "description": "Context wasn’t used",
-                            "type": "boolean"
-                        },
                         "CONTEXT_USED": {
                             "description": "The ad targeting criteria is (partially) based on either declared or inferred context. Value is the context(s), such as the website(s) or networks being targeted",
                             "type": "string"
@@ -380,10 +364,6 @@
                             "description": "Default value. Unclear whether other information is used",
                             "type": "boolean",
                             "default": true
-                        },
-                        "OTHER_NOT_USED": {
-                            "description": "Other information wasn’t used",
-                            "type": "boolean"
                         },
                         "OTHER_USED": {
                             "description": "The ad targeting criteria is (partially) based on other information, either declared or inferred",
