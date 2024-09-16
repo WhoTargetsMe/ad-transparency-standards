@@ -27,7 +27,7 @@ By implementing a schema, or standard, for how political advertising data is pre
 - `advertiser_suspension_start`: Datestamp for the end of the entity's suspension(s) (blank if currently suspended)
 - `advertiser_suspension_reason`: Link to the internal rule(s) that led to suspension(s)
 
-### `ad/details`
+### `advertisement/details`
 
 - `advert_id`: An internal ID for the advert.
 - `advert_library_entity_url`: A deeplink to the entity in the platform advert library.
