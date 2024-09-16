@@ -48,8 +48,7 @@ By implementing a schema, or standard, for how political advertising data is pre
 
 ### `advert/testing`
 
-- `testing_not_disclosed`: Default value. 
-- `testing_not_used`: The advert doesn't make use of the platform's testing capabilities.
+- `testing_not_disclosed`: Default value. The advert doesn't make use of the platform's testing capabilities.
 - `testing_type`: Values - 'AB', 'Multivariate', 'ML' etc.
 - `testing_test_set`: A value to associate each tested variation with others in the same set.
 
@@ -86,7 +85,7 @@ By implementing a schema, or standard, for how political advertising data is pre
 
 ### `targeting_category/user_characteristics`
 
-- `user_characteristics_not_used`: User characteristics weren’t used.
+- `user_characteristics_not_disclosed`: Default value. User characteristics weren’t used.
 - `user_characteristics_gender`: The advert targeting criteria is (partially) based on either declared or inferred gender.
 - `user_characteristics_age_group`: The advert targeting criteria is (partially) based on either declared or inferred age group.
 - `user_characteristics_languages`: The advert targeting criteria is (partially) based on either declared or inferred user language(s).

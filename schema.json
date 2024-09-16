@@ -164,10 +164,6 @@
                             "type": "boolean",
                             "default": true
                         },
-                        "testing_not_used": {
-                            "description": "The ad doesn't make use of the platform's testing capabilities",
-                            "type": "boolean"
-                        },
                         "testing_type": {
                             "description": "Values - 'AB', 'Multivariate', 'ML' etc.",
                             "type": "string"
@@ -299,8 +295,8 @@
                 "user_characteristics": {
                     "type": "object",
                     "properties": {
-                        "user_characteristics_not_used": {
-                            "description": "User characteristics weren’t used",
+                        "user_characteristics_not_disclosed": {
+                            "description": "Default value. User characteristics weren’t used",
                             "type": "boolean"
                         },
                         "user_characteristics_gender": {
