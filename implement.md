@@ -101,7 +101,7 @@ By implementing a schema, or standard, for how political advertising data is pre
 ### `targeting_category/context`
 
 - `context_not_disclosed`: Default value. Unclear whether context is used.
-- `context_used`: The advert targeting criteria is (partially) based on either declared or inferred context. Value is the context(s), such as the website(s) or networks being targeted.
+- `context_used`: The advert targeting criteria is (partially) based on either declared or inferred context. Value is the context(s), such as the website(s) or networks being targeted. For instance, in the case of YouTube, `context` can be the search term that triggered the advert being shown to the user. 
 
 ### `targeting_category/other`
 

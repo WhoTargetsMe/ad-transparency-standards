@@ -348,7 +348,7 @@
                             "default": true
                         },
                         "context_used": {
-                            "description": "The advert targeting criteria is (partially) based on either declared or inferred context. Value is the context(s), such as the website(s) or networks being targeted",
+                            "description": "The advert targeting criteria is (partially) based on either declared or inferred context. Value is the context(s), such as the website(s) or networks being targeted. For instance, in the case of YouTube, `context` can be the search term that triggered the advert being shown to the user.",
                             "type": "string"
                         }
                     }
