@@ -580,6 +580,10 @@
                     }
                 }
             }
+        },
+        "provider_data": {
+            "type": "object",
+            "description": "This property should hold any other data that are not platform-specific but are still necessary to make sense of the data described above. This is an extensible property."
         }
     },
     "required": [
@@ -590,6 +594,7 @@
         "spending",
         "delivery",
         "reach",
-        "moderation"
+        "moderation",
+        "provider_data"
     ]
 }

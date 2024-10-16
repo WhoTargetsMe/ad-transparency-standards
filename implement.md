@@ -161,3 +161,6 @@ By implementing a schema, or standard, for how political advertising data is pre
 - `moderation_review_type`: Automated, manual or none. Refers to the highest level of moderation an advert received (e.g. if an automated system referred it for manual review, the value is "manual"). Presented as an array: Datestamp of moderation => Moderation type. 
 - `moderation_3rd_party_fact_check`: Presented as an array: Datestamp of check => Link to information about check
 - `moderation_rule_applied`: Approved ads = NULL, otherwise link to or description of specific ruile that led to the advert not being approved.
+
+### `provider_data`
+- This property should hold any other data that are not platform-specific but are still necessary to make sense of the data described above. This is an extensible property.
