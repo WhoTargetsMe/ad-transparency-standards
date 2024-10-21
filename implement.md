@@ -7,7 +7,7 @@ By implementing a schema, or standard, for how political advertising data is pre
 - In political advertising libraries, to create and offer a standard format for access to political advertising data
 - On web pages, so people can use a variety of new, context-adding tools that read and interpret this data.
 
-## The schema (v .2)
+## The schema (v1.0.0)
 
 ### `advertiser/details`
 
