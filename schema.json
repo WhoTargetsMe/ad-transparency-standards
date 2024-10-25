@@ -459,10 +459,7 @@
                         },
                         "engagement_social": {
                             "description": "The social engagement with the advert, presented as an array (likes/shares/comments if these features are available)",
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
+                            "type": "object"
                         }
                     }
                 },
