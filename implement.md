@@ -21,12 +21,6 @@ By implementing a schema, or standard, for how political advertising data is pre
 - `advertiser_verification_date`: The date the entity was verified (blank if not, or no verification programme)
 - `advertiser_geo_scope`: Allow the entity to specify where they are active (country, region within country etc).
 
-### `advertiser/suspended`
-
-- `advertiser_suspension_start`: Datestamp for the start of the entity's suspension(s)
-- `advertiser_suspension_end`: Datestamp for the end of the entity's suspension(s) (blank if currently suspended)
-- `advertiser_suspension_reason`: Link to the internal rule(s) that led to suspension(s)
-
 ### `advertisement/details`
 
 - `advert_id`: An internal ID for the advert.

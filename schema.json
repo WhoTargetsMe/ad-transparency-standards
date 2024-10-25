@@ -54,26 +54,6 @@
                         "advertiser_real_name",
                         "advertiser_website"
                     ]
-                },
-                "suspended": {
-                    "type": "object",
-                    "properties": {
-                        "advertiser_suspension_start": {
-                            "description": "Datestamp for the start of the entity's suspension(s)",
-                            "type": "string",
-                            "format": "date-time"
-                        },
-                        "advertiser_suspension_end": {
-                            "description": "Datestamp for the end of the entity's suspension(s) (blank if currently suspended)",
-                            "type": "string",
-                            "format": "date-time"
-                        },
-                        "advertiser_suspension_reason": {
-                            "description": "Link to the internal rule(s) that led to suspension(s)",
-                            "type": "string",
-                            "format": "uri"
-                        }
-                    }
                 }
             }
         },
