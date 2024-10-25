@@ -108,7 +108,7 @@ By implementing a schema, or standard, for how political advertising data is pre
 - `audience_size_lower_bound`: Lower bound of the estimated target audience size.
 - `audience_size_upper_bound`: Upper bound of the estimated target audience size.
 
-### `spending/details`
+### `spending`
 
 - `spending_not_disclosed`: Default value. 
 - `spending_total`: The exact amount spent on the ad.

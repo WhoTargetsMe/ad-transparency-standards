@@ -361,31 +361,26 @@
         "spending": {
             "type": "object",
             "properties": {
-                "details": {
-                    "type": "object",
-                    "properties": {
-                        "spending_not_disclosed": {
-                            "description": "Default value",
-                            "type": "boolean",
-                            "default": true
-                        },
-                        "spending_total": {
-                            "description": "The exact amount spent on the advert",
-                            "type": "number"
-                        },
-                        "spending_budget": {
-                            "description": "The total budget for the ad at time of creation",
-                            "type": "number"
-                        },
-                        "spending_lower_bound": {
-                            "description": "The lower bound of spending on the ad (e.g. $500)",
-                            "type": "number"
-                        },
-                        "spending_upper_bound": {
-                            "description": "The higher bound of spending on the ad (e.g. $600)",
-                            "type": "number"
-                        }
-                    }
+                "spending_not_disclosed": {
+                    "description": "Default value",
+                    "type": "boolean",
+                    "default": true
+                },
+                "spending_total": {
+                    "description": "The exact amount spent on the advert",
+                    "type": "number"
+                },
+                "spending_budget": {
+                    "description": "The total budget for the ad at time of creation",
+                    "type": "number"
+                },
+                "spending_lower_bound": {
+                    "description": "The lower bound of spending on the ad (e.g. $500)",
+                    "type": "number"
+                },
+                "spending_upper_bound": {
+                    "description": "The higher bound of spending on the ad (e.g. $600)",
+                    "type": "number"
                 }
             }
         },
