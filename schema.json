@@ -493,52 +493,47 @@
         "moderation": {
             "type": "object",
             "properties": {
-                "information": {
-                    "type": "object",
-                    "properties": {
-                        "moderation_not_disclosed": {
-                            "description": "Default value",
-                            "type": "boolean",
-                            "default": true
-                        },
-                        "moderation_review_type": {
-                            "description": "Automated, manual or none. Refers to the highest level of moderation an advert received (e.g. if an automated system referred it for manual review, the value is \"manual\"). Presented as an array: Datestamp of moderation => Moderation type",
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "properties": {
-                                    "datestamp": {
-                                        "type": "string",
-                                        "format": "date-time"
-                                    },
-                                    "type": {
-                                        "type": "string"
-                                    }
-                                }
+                "moderation_not_disclosed": {
+                    "description": "Default value",
+                    "type": "boolean",
+                    "default": true
+                },
+                "moderation_review_type": {
+                    "description": "Automated, manual or none. Refers to the highest level of moderation an advert received (e.g. if an automated system referred it for manual review, the value is \"manual\"). Presented as an array: Datestamp of moderation => Moderation type",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "datestamp": {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            "type": {
+                                "type": "string"
                             }
-                        },
-                        "moderation_3rd_party_fact_check": {
-                            "description": "Presented as an array: Datestamp of check => Link to information about check",
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "properties": {
-                                    "datestamp": {
-                                        "type": "string",
-                                        "format": "date-time"
-                                    },
-                                    "link": {
-                                        "type": "string",
-                                        "format": "uri"
-                                    }
-                                }
-                            }
-                        },
-                        "moderation_rule_applied": {
-                            "description": "Approved ads = NULL, otherwise link to or description of specific ruile that led to the advert not being approved",
-                            "type": "string"
                         }
                     }
+                },
+                "moderation_3rd_party_fact_check": {
+                    "description": "Presented as an array: Datestamp of check => Link to information about check",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "datestamp": {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            "link": {
+                                "type": "string",
+                                "format": "uri"
+                            }
+                        }
+                    }
+                },
+                "moderation_rule_applied": {
+                    "description": "Approved ads = NULL, otherwise link to or description of specific ruile that led to the advert not being approved",
+                    "type": "string"
                 }
             }
         },

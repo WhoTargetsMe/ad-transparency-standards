@@ -149,7 +149,7 @@ By implementing a schema, or standard, for how political advertising data is pre
 - `demographics_age`: The reach of the advert, broken down by age ranges (25-34, 35-44 etc).
 - `demographics_location`: The reach of the advert, broken down by country and geographical area.
 
-### `moderation/information`
+### `moderation`
 
 - `moderation_not_disclosed`: Default value. 
 - `moderation_review_type`: Automated, manual or none. Refers to the highest level of moderation an advert received (e.g. if an automated system referred it for manual review, the value is "manual"). Presented as an array: Datestamp of moderation => Moderation type. 
