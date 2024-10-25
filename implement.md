@@ -48,6 +48,11 @@ By implementing a schema, or standard, for how political advertising data is pre
 
 ### `advert/dates`
 
+- `datetime_approved`: The date and time the advert was approved to run.
+- `datetime_created`: When the advert was created
+
+### `advert/dates/datetime_period`
+
 - `datetime_live`: When the advert started running
 - `datetime_ended`: When the advert stopped running (blank if still delivering impressions and budget not exhausted)
 - `datetime_approved`: The date and time the advert was approved to run.

@@ -157,15 +157,23 @@
                 "dates": {
                     "type": "object",
                     "properties": {
-                        "datetime_live": {
-                            "description": "When the advert started running",
-                            "type": "string",
-                            "format": "date-time"
-                        },
-                        "datetime_ended": {
-                            "description": "When the advert stopped running (blank if still delivering impressions and budget not exhausted)",
-                            "type": "string",
-                            "format": "date-time"
+                        "datetime_period": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "datetime_live": {
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "description": "When the advert started running"
+                                    },
+                                    "datetime_ended": {
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "description": "When the advert stopped running (blank if still delivering impressions and budget not exhausted)"
+                                    }
+                                }
+                            }
                         },
                         "datetime_approved": {
                             "description": "The date and time the advert was approved to run",
