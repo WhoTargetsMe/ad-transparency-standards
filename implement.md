@@ -117,7 +117,7 @@ By implementing a schema, or standard, for how political advertising data is pre
 - `spending_lower_bound`: The lower bound of spending on the advert (e.g. $500).
 - `spending_upper_bound`: The higher bound of spending on the advert (e.g. $600).
 
-### `delivery/details`
+### `delivery`
 
 - `delivery_not_disclosed`: Default value. 
 - `delivery_optimization`: The delivery optimization method selected by the advertiser.

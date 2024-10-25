@@ -392,19 +392,14 @@
         "delivery": {
             "type": "object",
             "properties": {
-                "details": {
-                    "type": "object",
-                    "properties": {
-                        "delivery_not_disclosed": {
-                            "description": "Default value",
-                            "type": "boolean",
-                            "default": true
-                        },
-                        "delivery_optimization": {
-                            "description": "The delivery optimization method selected by the advertiser",
-                            "type": "string"
-                        }
-                    }
+                "delivery_not_disclosed": {
+                    "description": "Default value",
+                    "type": "boolean",
+                    "default": true
+                },
+                "delivery_optimization": {
+                    "description": "The delivery optimization method selected by the advertiser",
+                    "type": "string"
                 }
             }
         },
