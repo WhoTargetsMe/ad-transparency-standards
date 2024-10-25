@@ -184,32 +184,23 @@
         "advertising_platform": {
             "type": "object",
             "properties": {
-                "id_type": {
-                    "type": "object",
-                    "properties": {
-                        "platform_name": {
-                            "description": "The name of the advertising platform",
-                            "type": "string"
-                        },
-                        "platform_url": {
-                            "description": "The URL of the advertising platform",
-                            "type": "string",
-                            "format": "uri"
-                        },
-                        "platform_ad_policy": {
-                            "description": "The public URL of the platform's advertising policies and rules",
-                            "type": "string",
-                            "format": "uri"
-                        },
-                        "iab_id": {
-                            "description": "IAB ID for advertising technology providers. For more details read the IAB's website \"TCF – Transparency & Consent Framework\"",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "platform_name",
-                        "platform_url"
-                    ]
+                "platform_name": {
+                    "description": "The name of the advertising platform",
+                    "type": "string"
+                },
+                "platform_url": {
+                    "description": "The URL of the advertising platform",
+                    "type": "string",
+                    "format": "uri"
+                },
+                "platform_ad_policy": {
+                    "description": "The public URL of the platform's advertising policies and rules",
+                    "type": "string",
+                    "format": "uri"
+                },
+                "iab_id": {
+                    "description": "IAB ID for advertising technology providers. For more details read the IAB's website \"TCF – Transparency & Consent Framework\"",
+                    "type": "string"
                 }
             }
         },

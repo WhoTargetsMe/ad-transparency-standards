@@ -53,7 +53,7 @@ By implementing a schema, or standard, for how political advertising data is pre
 - `datetime_approved`: The date and time the advert was approved to run.
 - `datetime_created`: When the advert was created
 
-### `advertising_platform/id_type`
+### `advertising_platform`
 
 - `platform_name`: The name of the advertising platform
 - `platform_url`: The URL of the advertising platform
