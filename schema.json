@@ -163,12 +163,12 @@
                                 "type": "object",
                                 "properties": {
                                     "datetime_live": {
-                                        "type": "string",
+                                        "type": ["string", "null"],
                                         "format": "date-time",
                                         "description": "When the advert started running"
                                     },
                                     "datetime_ended": {
-                                        "type": "string",
+                                        "type": ["string", "null"],
                                         "format": "date-time",
                                         "description": "When the advert stopped running (blank if still delivering impressions and budget not exhausted)"
                                     }
@@ -176,14 +176,14 @@
                             }
                         },
                         "datetime_approved": {
-                            "description": "The date and time the advert was approved to run",
-                            "type": "string",
-                            "format": "date-time"
+                            "type": ["string", "null"],
+                            "format": "date-time",
+                            "description": "The date and time the advert was approved to run"
                         },
                         "datetime_created": {
-                            "description": "When the advert was created",
-                            "type": "string",
-                            "format": "date-time"
+                            "type": ["string", "null"],
+                            "format": "date-time",
+                            "description": "When the advert was created"
                         }
                     }
                 }
