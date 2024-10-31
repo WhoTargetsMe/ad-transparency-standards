@@ -54,26 +54,6 @@
                         "advertiser_real_name",
                         "advertiser_website"
                     ]
-                },
-                "suspended": {
-                    "type": "object",
-                    "properties": {
-                        "advertiser_suspension_start": {
-                            "description": "Datestamp for the start of the entity's suspension(s)",
-                            "type": "string",
-                            "format": "date-time"
-                        },
-                        "advertiser_suspension_end": {
-                            "description": "Datestamp for the end of the entity's suspension(s) (blank if currently suspended)",
-                            "type": "string",
-                            "format": "date-time"
-                        },
-                        "advertiser_suspension_reason": {
-                            "description": "Link to the internal rule(s) that led to suspension(s)",
-                            "type": "string",
-                            "format": "uri"
-                        }
-                    }
                 }
             }
         },
@@ -177,25 +157,33 @@
                 "dates": {
                     "type": "object",
                     "properties": {
-                        "datetime_live": {
-                            "description": "When the advert started running",
-                            "type": "string",
-                            "format": "date-time"
-                        },
-                        "datetime_ended": {
-                            "description": "When the advert stopped running (blank if still delivering impressions and budget not exhausted)",
-                            "type": "string",
-                            "format": "date-time"
+                        "datetime_period": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "datetime_live": {
+                                        "type": ["string", "null"],
+                                        "format": "date-time",
+                                        "description": "When the advert started running"
+                                    },
+                                    "datetime_ended": {
+                                        "type": ["string", "null"],
+                                        "format": "date-time",
+                                        "description": "When the advert stopped running (blank if still delivering impressions and budget not exhausted)"
+                                    }
+                                }
+                            }
                         },
                         "datetime_approved": {
-                            "description": "The date and time the advert was approved to run",
-                            "type": "string",
-                            "format": "date-time"
+                            "type": ["string", "null"],
+                            "format": "date-time",
+                            "description": "The date and time the advert was approved to run"
                         },
                         "datetime_created": {
-                            "description": "When the advert was created",
-                            "type": "string",
-                            "format": "date-time"
+                            "type": ["string", "null"],
+                            "format": "date-time",
+                            "description": "When the advert was created"
                         }
                     }
                 }
@@ -204,32 +192,23 @@
         "advertising_platform": {
             "type": "object",
             "properties": {
-                "id_type": {
-                    "type": "object",
-                    "properties": {
-                        "platform_name": {
-                            "description": "The name of the advertising platform",
-                            "type": "string"
-                        },
-                        "platform_url": {
-                            "description": "The URL of the advertising platform",
-                            "type": "string",
-                            "format": "uri"
-                        },
-                        "platform_ad_policy": {
-                            "description": "The public URL of the platform's advertising policies and rules",
-                            "type": "string",
-                            "format": "uri"
-                        },
-                        "iab_id": {
-                            "description": "IAB ID for advertising technology providers. For more details read the IAB's website \"TCF – Transparency & Consent Framework\"",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "platform_name",
-                        "platform_url"
-                    ]
+                "platform_name": {
+                    "description": "The name of the advertising platform",
+                    "type": "string"
+                },
+                "platform_url": {
+                    "description": "The URL of the advertising platform",
+                    "type": "string",
+                    "format": "uri"
+                },
+                "platform_ad_policy": {
+                    "description": "The public URL of the platform's advertising policies and rules",
+                    "type": "string",
+                    "format": "uri"
+                },
+                "iab_id": {
+                    "description": "IAB ID for advertising technology providers. For more details read the IAB's website \"TCF – Transparency & Consent Framework\"",
+                    "type": "string"
                 }
             }
         },
@@ -390,50 +369,40 @@
         "spending": {
             "type": "object",
             "properties": {
-                "details": {
-                    "type": "object",
-                    "properties": {
-                        "spending_not_disclosed": {
-                            "description": "Default value",
-                            "type": "boolean",
-                            "default": true
-                        },
-                        "spending_total": {
-                            "description": "The exact amount spent on the advert",
-                            "type": "number"
-                        },
-                        "spending_budget": {
-                            "description": "The total budget for the ad at time of creation",
-                            "type": "number"
-                        },
-                        "spending_lower_bound": {
-                            "description": "The lower bound of spending on the ad (e.g. $500)",
-                            "type": "number"
-                        },
-                        "spending_upper_bound": {
-                            "description": "The higher bound of spending on the ad (e.g. $600)",
-                            "type": "number"
-                        }
-                    }
+                "spending_not_disclosed": {
+                    "description": "Default value",
+                    "type": "boolean",
+                    "default": true
+                },
+                "spending_total": {
+                    "description": "The exact amount spent on the advert",
+                    "type": "number"
+                },
+                "spending_budget": {
+                    "description": "The total budget for the ad at time of creation",
+                    "type": "number"
+                },
+                "spending_lower_bound": {
+                    "description": "The lower bound of spending on the ad (e.g. $500)",
+                    "type": "number"
+                },
+                "spending_upper_bound": {
+                    "description": "The higher bound of spending on the ad (e.g. $600)",
+                    "type": "number"
                 }
             }
         },
         "delivery": {
             "type": "object",
             "properties": {
-                "details": {
-                    "type": "object",
-                    "properties": {
-                        "delivery_not_disclosed": {
-                            "description": "Default value",
-                            "type": "boolean",
-                            "default": true
-                        },
-                        "delivery_optimization": {
-                            "description": "The delivery optimization method selected by the advertiser",
-                            "type": "string"
-                        }
-                    }
+                "delivery_not_disclosed": {
+                    "description": "Default value",
+                    "type": "boolean",
+                    "default": true
+                },
+                "delivery_optimization": {
+                    "description": "The delivery optimization method selected by the advertiser",
+                    "type": "string"
                 }
             }
         },
@@ -498,10 +467,7 @@
                         },
                         "engagement_social": {
                             "description": "The social engagement with the advert, presented as an array (likes/shares/comments if these features are available)",
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
+                            "type": "object"
                         }
                     }
                 },
@@ -532,52 +498,47 @@
         "moderation": {
             "type": "object",
             "properties": {
-                "information": {
-                    "type": "object",
-                    "properties": {
-                        "moderation_not_disclosed": {
-                            "description": "Default value",
-                            "type": "boolean",
-                            "default": true
-                        },
-                        "moderation_review_type": {
-                            "description": "Automated, manual or none. Refers to the highest level of moderation an advert received (e.g. if an automated system referred it for manual review, the value is \"manual\"). Presented as an array: Datestamp of moderation => Moderation type",
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "properties": {
-                                    "datestamp": {
-                                        "type": "string",
-                                        "format": "date-time"
-                                    },
-                                    "type": {
-                                        "type": "string"
-                                    }
-                                }
+                "moderation_not_disclosed": {
+                    "description": "Default value",
+                    "type": "boolean",
+                    "default": true
+                },
+                "moderation_review_type": {
+                    "description": "Automated, manual or none. Refers to the highest level of moderation an advert received (e.g. if an automated system referred it for manual review, the value is \"manual\"). Presented as an array: Datestamp of moderation => Moderation type",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "datestamp": {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            "type": {
+                                "type": "string"
                             }
-                        },
-                        "moderation_3rd_party_fact_check": {
-                            "description": "Presented as an array: Datestamp of check => Link to information about check",
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "properties": {
-                                    "datestamp": {
-                                        "type": "string",
-                                        "format": "date-time"
-                                    },
-                                    "link": {
-                                        "type": "string",
-                                        "format": "uri"
-                                    }
-                                }
-                            }
-                        },
-                        "moderation_rule_applied": {
-                            "description": "Approved ads = NULL, otherwise link to or description of specific ruile that led to the advert not being approved",
-                            "type": "string"
                         }
                     }
+                },
+                "moderation_3rd_party_fact_check": {
+                    "description": "Presented as an array: Datestamp of check => Link to information about check",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "datestamp": {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            "link": {
+                                "type": "string",
+                                "format": "uri"
+                            }
+                        }
+                    }
+                },
+                "moderation_rule_applied": {
+                    "description": "Approved ads = NULL, otherwise link to or description of specific ruile that led to the advert not being approved",
+                    "type": "string"
                 }
             }
         },

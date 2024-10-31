@@ -21,12 +21,6 @@ By implementing a schema, or standard, for how political advertising data is pre
 - `advertiser_verification_date`: The date the entity was verified (blank if not, or no verification programme)
 - `advertiser_geo_scope`: Allow the entity to specify where they are active (country, region within country etc).
 
-### `advertiser/suspended`
-
-- `advertiser_suspension_start`: Datestamp for the start of the entity's suspension(s)
-- `advertiser_suspension_end`: Datestamp for the end of the entity's suspension(s) (blank if currently suspended)
-- `advertiser_suspension_reason`: Link to the internal rule(s) that led to suspension(s)
-
 ### `advertisement/details`
 
 - `advert_id`: An internal ID for the advert.
@@ -54,12 +48,17 @@ By implementing a schema, or standard, for how political advertising data is pre
 
 ### `advert/dates`
 
+- `datetime_approved`: The date and time the advert was approved to run.
+- `datetime_created`: When the advert was created
+
+### `advert/dates/datetime_period`
+
 - `datetime_live`: When the advert started running
 - `datetime_ended`: When the advert stopped running (blank if still delivering impressions and budget not exhausted)
 - `datetime_approved`: The date and time the advert was approved to run.
 - `datetime_created`: When the advert was created
 
-### `advertising_platform/id_type`
+### `advertising_platform`
 
 - `platform_name`: The name of the advertising platform
 - `platform_url`: The URL of the advertising platform
@@ -114,7 +113,7 @@ By implementing a schema, or standard, for how political advertising data is pre
 - `audience_size_lower_bound`: Lower bound of the estimated target audience size.
 - `audience_size_upper_bound`: Upper bound of the estimated target audience size.
 
-### `spending/details`
+### `spending`
 
 - `spending_not_disclosed`: Default value. 
 - `spending_total`: The exact amount spent on the ad.
@@ -123,7 +122,7 @@ By implementing a schema, or standard, for how political advertising data is pre
 - `spending_lower_bound`: The lower bound of spending on the advert (e.g. $500).
 - `spending_upper_bound`: The higher bound of spending on the advert (e.g. $600).
 
-### `delivery/details`
+### `delivery`
 
 - `delivery_not_disclosed`: Default value. 
 - `delivery_optimization`: The delivery optimization method selected by the advertiser.
@@ -155,7 +154,7 @@ By implementing a schema, or standard, for how political advertising data is pre
 - `demographics_age`: The reach of the advert, broken down by age ranges (25-34, 35-44 etc).
 - `demographics_location`: The reach of the advert, broken down by country and geographical area.
 
-### `moderation/information`
+### `moderation`
 
 - `moderation_not_disclosed`: Default value. 
 - `moderation_review_type`: Automated, manual or none. Refers to the highest level of moderation an advert received (e.g. if an automated system referred it for manual review, the value is "manual"). Presented as an array: Datestamp of moderation => Moderation type. 
