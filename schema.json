@@ -49,11 +49,7 @@
                             "type": "string"
                         }
                     },
-                    "required": [
-                        "advertiser_id",
-                        "advertiser_real_name",
-                        "advertiser_website"
-                    ]
+                    "required": ["advertiser_id", "advertiser_real_name", "advertiser_website"]
                 }
             }
         },
@@ -118,9 +114,7 @@
                             "type": "boolean"
                         }
                     },
-                    "required": [
-                        "ad_id"
-                    ]
+                    "required": ["ad_id"]
                 },
                 "group": {
                     "type": "object",
@@ -213,157 +207,173 @@
             }
         },
         "targeting_category": {
-            "type": "object",
-            "properties": {
-                "geo_location": {
-                    "type": "object",
-                    "properties": {
-                        "geo_location_not_disclosed": {
-                            "description": "Default value. Unclear whether geolocation data was used",
-                            "type": "boolean",
-                            "default": true
-                        },
-                        "geo_location_approximate": {
-                            "description": "Geolocation data is based on either fuzzified lat-long or IP-derived location",
-                            "type": "boolean"
-                        },
-                        "geo_location_precise": {
-                            "description": "Precise geolocation data, as defined by the IAB TCF v2.0",
-                            "type": "boolean"
-                        },
-                        "geo_location_excluded": {
-                            "description": "Any geographic exclusions",
-                            "type": "string"
-                        },
-                        "geo_location_unknown_type": {
-                            "description": "Other geolocation types, including cases where both APPROXIMATE and PRECISE are used or where APPROXIMATE or PRECISE cannot be determined",
-                            "type": "string"
-                        }
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "description": "Specific platform's name of the targeting category",
+                        "type": "string"
+                    },
+                    "type": {
+                        "description": "Multi-platform category of the targeting category",
+                        "type": "string"
+                    },
+                    "value": {
+                        "description": "The value of the targeting category",
+                        "type": "string"
                     }
                 },
-                "remarketing": {
-                    "type": "object",
-                    "properties": {
-                        "remarketing_not_disclosed": {
-                            "description": "Default value. Unclear whether remarketing is used",
-                            "type": "boolean",
-                            "default": true
+                "required": ["name", "type", "value"],
+                "allOf": [
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "const": "geo_location"
+                                }
+                            }
                         },
-                        "remarketing_third_party": {
-                            "description": "The advert targeting is based on online or offline data about you from someone who may or may not be the advertiser. Value is the name of this entity",
-                            "type": "string"
+                        "then": {
+                            "properties": {
+                                "geo_location_not_disclosed": {
+                                    "description": "Default value. Unclear whether geolocation data was used",
+                                    "type": "boolean",
+                                    "default": true
+                                },
+                                "geo_location_approximate": {
+                                    "description": "Geolocation data is based on either fuzzified lat-long or IP-derived location",
+                                    "type": "boolean"
+                                },
+                                "geo_location_precise": {
+                                    "description": "Precise geolocation data, as defined by the IAB TCF v2.0",
+                                    "type": "boolean"
+                                },
+                                "geo_location_excluded": {
+                                    "description": "Any geographic exclusions",
+                                    "type": "string"
+                                },
+                                "geo_location_unknown_type": {
+                                    "description": "Other geolocation types, including cases where both APPROXIMATE and PRECISE are used or where APPROXIMATE or PRECISE cannot be determined",
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "const": "remarketing"
+                                }
+                            }
                         },
-                        "remarketing_dataset_name": {
-                            "description": "A name given to the dataset by the entity above. For example 'Potential customers'",
-                            "type": "string"
+                        "then": {
+                            "properties": {
+                                "remarketing_not_disclosed": {
+                                    "description": "Default value. Unclear whether remarketing is used",
+                                    "type": "boolean",
+                                    "default": true
+                                },
+                                "remarketing_third_party": {
+                                    "description": "The advert targeting is based on online or offline data about you from someone who may or may not be the advertiser. Value is the name of this entity",
+                                    "type": "string"
+                                },
+                                "remarketing_dataset_name": {
+                                    "description": "A name given to the dataset by the entity above. For example 'Potential customers'",
+                                    "type": "string"
+                                },
+                                "remarketing_website_visit": {
+                                    "description": "The advert targeting is based on a previous visit to an advertiser’s website",
+                                    "type": "boolean"
+                                },
+                                "remarketing_exclusions": {
+                                    "description": "Any advert remarketing exclusions",
+                                    "type": "string"
+                                },
+                                "remarketing_unknown_type": {
+                                    "description": "Other remarketing types not listed or undetermined. For example, UPLOADED or WEBSITE_VISIT cannot be determined",
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "const": "user_characteristics"
+                                }
+                            }
                         },
-                        "remarketing_website_visit": {
-                            "description": "The advert targeting is based on a previous visit to an advertiser’s website",
-                            "type": "boolean"
+                        "then": {
+                            "properties": {
+                                "user_characteristics_not_disclosed": {
+                                    "description": "Default value. User characteristics weren’t used",
+                                    "type": "boolean"
+                                },
+                                "user_characteristics_gender": {
+                                    "description": "The advert targeting criteria is (partially) based on either declared or inferred gender",
+                                    "type": "string"
+                                },
+                                "user_characteristics_age_group": {
+                                    "description": "The advert targeting criteria is (partially) based on either declared or inferred age group",
+                                    "type": "string"
+                                },
+                                "user_characteristics_languages": {
+                                    "description": "The advert targeting criteria is (partially) based on either declared or inferred user language(s)",
+                                    "type": "string"
+                                },
+                                "user_characteristics_exclusions": {
+                                    "description": "Any exclusions based on user characteristics",
+                                    "type": "string"
+                                },
+                                "user_characteristics_unknown_type": {
+                                    "description": "Other user characteristics not listed",
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "const": "user_interests"
+                                }
+                            }
                         },
-                        "remarketing_exclusions": {
-                            "description": "Any advert remarketing exclusions",
-                            "type": "string"
+                        "then": {
+                            "properties": {
+                                "user_interests_not_disclosed": {
+                                    "description": "Default value. Unclear whether user interests are used",
+                                    "type": "boolean",
+                                    "default": true
+                                },
+                                "user_interests_excluded": {
+                                    "description": "User interests that were excluded from targeting",
+                                    "type": "string"
+                                },
+                                "user_interests_used": {
+                                    "description": "The advert targeting criteria is (partially) based on either declared or inferred user interests",
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "const": "unknown"
+                                }
+                            }
                         },
-                        "remarketing_unknown_type": {
-                            "description": "Other remarketing types not listed or undetermined. For example, UPLOADED or WEBSITE_VISIT cannot be determined",
-                            "type": "string"
+                        "then": {
+                            "properties": {}
                         }
                     }
-                },
-                "user_characteristics": {
-                    "type": "object",
-                    "properties": {
-                        "user_characteristics_not_disclosed": {
-                            "description": "Default value. User characteristics weren’t used",
-                            "type": "boolean"
-                        },
-                        "user_characteristics_gender": {
-                            "description": "The advert targeting criteria is (partially) based on either declared or inferred gender",
-                            "type": "string"
-                        },
-                        "user_characteristics_age_group": {
-                            "description": "The advert targeting criteria is (partially) based on either declared or inferred age group",
-                            "type": "string"
-                        },
-                        "user_characteristics_languages": {
-                            "description": "The advert targeting criteria is (partially) based on either declared or inferred user language(s)",
-                            "type": "string"
-                        },
-                        "user_characteristics_exclusions": {
-                            "description": "Any exclusions based on user characteristics",
-                            "type": "string"
-                        },
-                        "user_characteristics_unknown_type": {
-                            "description": "Other user characteristics not listed",
-                            "type": "string"
-                        }
-                    }
-                },
-                "user_interests": {
-                    "type": "object",
-                    "properties": {
-                        "user_interests_not_disclosed": {
-                            "description": "Default value. Unclear whether user interests are used",
-                            "type": "boolean",
-                            "default": true
-                        },
-                        "user_interests_excluded": {
-                            "description": "User interests that were excluded from targeting",
-                            "type": "string"
-                        },
-                        "user_interests_used": {
-                            "description": "The advert targeting criteria is (partially) based on either declared or inferred user interests",
-                            "type": "string"
-                        }
-                    }
-                },
-                "context": {
-                    "type": "object",
-                    "properties": {
-                        "context_not_disclosed": {
-                            "description": "Default value. Unclear whether context is used",
-                            "type": "boolean",
-                            "default": true
-                        },
-                        "context_used": {
-                            "description": "The advert targeting criteria is (partially) based on either declared or inferred context. Value is the context(s), such as the website(s) or networks being targeted. For instance, in the case of YouTube, `context` can be the search term that triggered the advert being shown to the user.",
-                            "type": "string"
-                        }
-                    }
-                },
-                "other": {
-                    "type": "object",
-                    "properties": {
-                        "other_not_disclosed": {
-                            "description": "Default value. Unclear whether other information is used",
-                            "type": "boolean",
-                            "default": true
-                        },
-                        "other_used": {
-                            "description": "The ad targeting criteria is (partially) based on other information, either declared or inferred",
-                            "type": "string"
-                        }
-                    }
-                },
-                "audience_size": {
-                    "type": "object",
-                    "properties": {
-                        "audience_size_not_disclosed": {
-                            "description": "Default value",
-                            "type": "boolean",
-                            "default": true
-                        },
-                        "audience_size_lower_bound": {
-                            "description": "Lower bound of the estimated target audience size",
-                            "type": "number"
-                        },
-                        "audience_size_upper_bound": {
-                            "description": "Upper bound of the estimated target audience size",
-                            "type": "number"
-                        }
-                    }
-                }
+                ]
             }
         },
         "spending": {
