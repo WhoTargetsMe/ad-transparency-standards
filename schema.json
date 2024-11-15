@@ -49,7 +49,11 @@
                             "type": "string"
                         }
                     },
-                    "required": ["advertiser_id", "advertiser_real_name", "advertiser_website"]
+                    "required": [
+                        "advertiser_id",
+                        "advertiser_real_name",
+                        "advertiser_website"
+                    ]
                 }
             }
         },
@@ -114,7 +118,9 @@
                             "type": "boolean"
                         }
                     },
-                    "required": ["ad_id"]
+                    "required": [
+                        "ad_id"
+                    ]
                 },
                 "group": {
                     "type": "object",
@@ -157,12 +163,18 @@
                                 "type": "object",
                                 "properties": {
                                     "datetime_live": {
-                                        "type": ["string", "null"],
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ],
                                         "format": "date-time",
                                         "description": "When the advert started running"
                                     },
                                     "datetime_ended": {
-                                        "type": ["string", "null"],
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ],
                                         "format": "date-time",
                                         "description": "When the advert stopped running (blank if still delivering impressions and budget not exhausted)"
                                     }
@@ -170,12 +182,18 @@
                             }
                         },
                         "datetime_approved": {
-                            "type": ["string", "null"],
+                            "type": [
+                                "string",
+                                "null"
+                            ],
                             "format": "date-time",
                             "description": "The date and time the advert was approved to run"
                         },
                         "datetime_created": {
-                            "type": ["string", "null"],
+                            "type": [
+                                "string",
+                                "null"
+                            ],
                             "format": "date-time",
                             "description": "When the advert was created"
                         }
@@ -206,7 +224,7 @@
                 }
             }
         },
-        "targeting_category": {
+        "targeting_categories": {
             "type": "array",
             "items": {
                 "type": "object",
@@ -224,7 +242,11 @@
                         "type": "string"
                     }
                 },
-                "required": ["name", "type", "value"],
+                "required": [
+                    "name",
+                    "type",
+                    "value"
+                ],
                 "allOf": [
                     {
                         "if": {
@@ -236,11 +258,6 @@
                         },
                         "then": {
                             "properties": {
-                                "geo_location_not_disclosed": {
-                                    "description": "Default value. Unclear whether geolocation data was used",
-                                    "type": "boolean",
-                                    "default": true
-                                },
                                 "geo_location_approximate": {
                                     "description": "Geolocation data is based on either fuzzified lat-long or IP-derived location",
                                     "type": "boolean"
@@ -270,11 +287,6 @@
                         },
                         "then": {
                             "properties": {
-                                "remarketing_not_disclosed": {
-                                    "description": "Default value. Unclear whether remarketing is used",
-                                    "type": "boolean",
-                                    "default": true
-                                },
                                 "remarketing_third_party": {
                                     "description": "The advert targeting is based on online or offline data about you from someone who may or may not be the advertiser. Value is the name of this entity",
                                     "type": "string"
@@ -302,33 +314,98 @@
                         "if": {
                             "properties": {
                                 "type": {
-                                    "const": "user_characteristics"
+                                    "const": "user_characteristic_gender"
                                 }
                             }
                         },
                         "then": {
                             "properties": {
-                                "user_characteristics_not_disclosed": {
-                                    "description": "Default value. User characteristics weren’t used",
-                                    "type": "boolean"
-                                },
-                                "user_characteristics_gender": {
+                                "user_characteristic_gender": {
                                     "description": "The advert targeting criteria is (partially) based on either declared or inferred gender",
                                     "type": "string"
-                                },
-                                "user_characteristics_age_group": {
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "const": "user_characteristic_age"
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "user_characteristic_age_group": {
                                     "description": "The advert targeting criteria is (partially) based on either declared or inferred age group",
                                     "type": "string"
-                                },
-                                "user_characteristics_languages": {
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "const": "user_characteristic_country"
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "user_characteristic_country": {
+                                    "description": "User country",
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "const": "user_characteristic_language"
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "user_characteristic_language": {
                                     "description": "The advert targeting criteria is (partially) based on either declared or inferred user language(s)",
                                     "type": "string"
-                                },
-                                "user_characteristics_exclusions": {
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "const": "user_characteristic_exclusion"
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "user_characteristic_exclusion": {
                                     "description": "Any exclusions based on user characteristics",
                                     "type": "string"
-                                },
-                                "user_characteristics_unknown_type": {
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "const": "user_characteristic_unknown_type"
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "user_characteristic_unknown_type": {
                                     "description": "Other user characteristics not listed",
                                     "type": "string"
                                 }
@@ -339,22 +416,17 @@
                         "if": {
                             "properties": {
                                 "type": {
-                                    "const": "user_interests"
+                                    "const": "user_interest"
                                 }
                             }
                         },
                         "then": {
                             "properties": {
-                                "user_interests_not_disclosed": {
-                                    "description": "Default value. Unclear whether user interests are used",
-                                    "type": "boolean",
-                                    "default": true
-                                },
-                                "user_interests_excluded": {
+                                "user_interest_excluded": {
                                     "description": "User interests that were excluded from targeting",
                                     "type": "string"
                                 },
-                                "user_interests_used": {
+                                "user_interest_used": {
                                     "description": "The advert targeting criteria is (partially) based on either declared or inferred user interests",
                                     "type": "string"
                                 }
@@ -365,7 +437,7 @@
                         "if": {
                             "properties": {
                                 "type": {
-                                    "const": "unknown"
+                                    "const": "other"
                                 }
                             }
                         },
@@ -561,7 +633,7 @@
         "advertiser",
         "advertisement",
         "advertising_platform",
-        "targeting_category",
+        "targeting_categories",
         "spending",
         "delivery",
         "reach",
