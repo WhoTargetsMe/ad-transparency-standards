@@ -14,7 +14,7 @@ By implementing a schema, or standard, for how political advertising data is pre
 - `advertiser_id`: An internal ID for the advertiser (e.g. a pageID)
 - `advertiser_real_name`: The name of the entity running the advert (e.g. "The Democratic Party")
 - `advertiser_internal_name`: An internal name of the entity (e.g. a short url "democrats")
-- `advertiser_website`: The website of the entity (e.g. "https://democrats.org" - useful to de-duplicate/unify data) 
+- `advertiser_website`: The website of the entity (e.g. "https://democrats.org" - useful to de-duplicate/unify data)
 - `advertiser_electoral_id`: An (external) ID held by an electoral regulator (e.g. FEC ID)
 - `advertiser_legal_status`: The legal status of the entity (e.g. individual, company, charity, political party)
 - `advertiser_type`: The type of entity (e.g. candidate, elected official, political party, non-profit, public figure etc).
@@ -63,9 +63,19 @@ By implementing a schema, or standard, for how political advertising data is pre
 - `platform_name`: The name of the advertising platform
 - `platform_url`: The URL of the advertising platform
 - `platform_ad_policy`: The public URL of the platform's advertising policies and rules
-- `iab_id`:  IAB ID for advertising technology providers. For more details read the [IAB's website "TCF – Transparency & Consent Framework"](https://iabeurope.eu/transparency-consent-framework/).
+- `iab_id`: IAB ID for advertising technology providers. For more details read the [IAB's website "TCF – Transparency & Consent Framework"](https://iabeurope.eu/transparency-consent-framework/).
 
-### `targeting_category/geo_location`
+### `targeting_categories`
+
+List of items
+
+- `name`: Specific platform's name of the targeting category if available
+- `type`: Multi-platform name of the targeting category
+- `value`: The value of the targeting category
+
+If one of the following types, then it properties are restricted
+
+#### `targeting_categories/geo_location`
 
 - `geo_location_not_disclosed`: Default value. Unclear whether geolocation data was used.
 - `geo_location_approximate`: Geolocation data is based on either fuzzified lat-long or IP-derived location.
@@ -73,7 +83,7 @@ By implementing a schema, or standard, for how political advertising data is pre
 - `geo_location_excluded`: Any geographic exclusions.
 - `geo_location_unknown_type`: Other geolocation types, including cases where both APPROXIMATE and PRECISE are used or where APPROXIMATE or PRECISE cannot be determined.
 
-### `targeting_category/remarketing`
+#### `targeting_categories/remarketing`
 
 - `remarketing_not_disclosed`: Default value. Unclear whether remarketing is used.
 - `remarketing_third PARTY`: The advert targeting is based on online or offline data about you from someone who may or may not be the advertiser. Value is the name of this entity.
@@ -82,40 +92,62 @@ By implementing a schema, or standard, for how political advertising data is pre
 - `remarketing_exclusions`: Any advert remarketing exclusions.
 - `remarketing_unknown_type`: Other remarketing types not listed or undetermined. For example, `uploaded` or `website_visit` cannot be determined.
 
-### `targeting_category/user_characteristics`
+#### `targeting_categories/user_characteristic`
 
-- `user_characteristics_not_disclosed`: Default value. User characteristics weren’t used.
-- `user_characteristics_gender`: The advert targeting criteria is (partially) based on either declared or inferred gender.
-- `user_characteristics_age_group`: The advert targeting criteria is (partially) based on either declared or inferred age group.
-- `user_characteristics_languages`: The advert targeting criteria is (partially) based on either declared or inferred user language(s).
-- `user_characteristics_exclusions`: Any exclusions based on user characteristics.
-- `user_characteristics_unknown_type`: Other user characteristics not listed.
+- `user_characteristic_not_disclosed`: Default value. User characteristics weren’t used.
+- `user_characteristic_gender`: The advert targeting criteria is (partially) based on either declared or inferred gender.
+- `user_characteristic_age_group`: The advert targeting criteria is (partially) based on either declared or inferred age group.
+- `user_characteristic_languages`: The advert targeting criteria is (partially) based on either declared or inferred user language(s).
+- `user_characteristic_exclusions`: Any exclusions based on user characteristics.
+- `user_characteristic_unknown_type`: Other user characteristics not listed.
 
-### `targeting_category/user_interests`
+- `user_characteristic_follower`: The user is following specific account. For example, this could look like 'You are similar to the followers of UNESCO'
+
+#### `targeting_categories/user_interests`
 
 - `user_interests_not_disclosed`: Default value. Unclear whether user interests are used.
 - `user_interests_excluded`: User interests that were excluded from targeting.
 - `user_interests_used`: The advert targeting criteria is (partially) based on either declared or inferred user interests.
 
-### `targeting_category/context`
+#### `targeting_categories/hashed_list`
+
+- `hashed_list`: Advertiser used a hashed list to target specific users. For example, this could look like 'Advertiser has uploaded a hashed list with your information'
+
+### `targeting_categories/user_interaction`
+
+- `user_interaction`: User has interacted with specific accounts or topics. For example, this could look like 'You have interacted with business and education topics'
+
+### `targeting_categories/user_activity`
+
+- `user_activity`: User has specific activities. For example, this could look like 'Activity on Facebook such as using Facebook check-in'
+
+### `targeting_categories/user_connection`
+
+- `user_connection`: User is targeted through connections. For example, this could look like 'Connection information, such as the IP address of your device'
+
+### `targeting_categories/user_website_visit`
+
+- `user_website_visit`: User has visited certain websites. For example, when user clicks on a post and gets redirected to a website that is about higher education or fitness
+
+### `targeting_categories/context`
 
 - `context_not_disclosed`: Default value. Unclear whether context is used.
-- `context_used`: The advert targeting criteria is (partially) based on either declared or inferred context. Value is the context(s), such as the website(s) or networks being targeted. For instance, in the case of YouTube, `context` can be the search term that triggered the advert being shown to the user. 
+- `context_used`: The advert targeting criteria is (partially) based on either declared or inferred context. Value is the context(s), such as the website(s) or networks being targeted. For instance, in the case of YouTube, `context` can be the search term that triggered the advert being shown to the user.
 
-### `targeting_category/other`
+### `targeting_categories/other`
 
 - `other_not_disclosed`: Default value. Unclear whether other information is used.
 - `other_used`: The advert targeting criteria is (partially) based on other information, either declared or inferred.
 
-### `targeting_category/audience_size`
+### `targeting_categories/audience_size`
 
-- `audience_size_not_disclosed`: Default value. 
+- `audience_size_not_disclosed`: Default value.
 - `audience_size_lower_bound`: Lower bound of the estimated target audience size.
 - `audience_size_upper_bound`: Upper bound of the estimated target audience size.
 
 ### `spending`
 
-- `spending_not_disclosed`: Default value. 
+- `spending_not_disclosed`: Default value.
 - `spending_total`: The exact amount spent on the ad.
 - `spending_budget`: The total budget for the advert at time of creation
 - `spending_currency`: The currency the advert was paid for in
@@ -124,12 +156,12 @@ By implementing a schema, or standard, for how political advertising data is pre
 
 ### `delivery`
 
-- `delivery_not_disclosed`: Default value. 
+- `delivery_not_disclosed`: Default value.
 - `delivery_optimization`: The delivery optimization method selected by the advertiser.
 
 ### `reach/impressions`
 
-- `impressions_not_disclosed`: Default value. 
+- `impressions_not_disclosed`: Default value.
 - `impressions_paid_lower_bound`: Lower bound of the number of paid advert impressions delivered.
 - `impressions_paid_upper_bound`: Upper bound of the number of paid advert impressions delivered.
 - `impressions_organic_lower_bound`: Lower bound of the number of non-paid (e.g. via shares) advert impressions delivered.
@@ -137,29 +169,30 @@ By implementing a schema, or standard, for how political advertising data is pre
 
 ### `reach/unique_users`
 
-- `unique_users_not_disclosed`: Default value. 
+- `unique_users_not_disclosed`: Default value.
 - `unique_users_lower_bound`: Lower bound of the number of unique users who saw > 1 impression of the advert.
 - `unique_users_upper_bound`: Upper bound of the number of unique users who saw > 1 impression of the advert.
 
 ### `reach/engagement`
 
-- `engagement_not_disclosed`: Default value. 
+- `engagement_not_disclosed`: Default value.
 - `engagement_clicks`: The number of clicks on the advert.
 - `engagement_social`: The social engagement with the advert, presented as an array (likes/shares/comments if these features are available).
 
 ### `reach/demographics`
 
-- `demographics_not_disclosed`: Default value. 
+- `demographics_not_disclosed`: Default value.
 - `demographics_gender`: The reach of the advert, broken down by gender.
 - `demographics_age`: The reach of the advert, broken down by age ranges (25-34, 35-44 etc).
 - `demographics_location`: The reach of the advert, broken down by country and geographical area.
 
 ### `moderation`
 
-- `moderation_not_disclosed`: Default value. 
-- `moderation_review_type`: Automated, manual or none. Refers to the highest level of moderation an advert received (e.g. if an automated system referred it for manual review, the value is "manual"). Presented as an array: Datestamp of moderation => Moderation type. 
+- `moderation_not_disclosed`: Default value.
+- `moderation_review_type`: Automated, manual or none. Refers to the highest level of moderation an advert received (e.g. if an automated system referred it for manual review, the value is "manual"). Presented as an array: Datestamp of moderation => Moderation type.
 - `moderation_3rd_party_fact_check`: Presented as an array: Datestamp of check => Link to information about check
 - `moderation_rule_applied`: Approved ads = NULL, otherwise link to or description of specific ruile that led to the advert not being approved.
 
 ### `provider_data`
+
 - This property should hold any other data that are not platform-specific but are still necessary to make sense of the data described above. This is an extensible property.
