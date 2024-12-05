@@ -348,6 +348,23 @@
                         "if": {
                             "properties": {
                                 "type": {
+                                    "const": "user_characteristic_follower"
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "user_characteristic_follower": {
+                                    "description": "The user is following specific account. For example, this could look like 'You are similar to the followers of UNESCO'",
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
                                     "const": "user_characteristic_country"
                                 }
                             }
@@ -428,6 +445,91 @@
                                 },
                                 "user_interest_used": {
                                     "description": "The advert targeting criteria is (partially) based on either declared or inferred user interests",
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "const": "hashed_list"
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "value": {
+                                    "description": "Advertiser used a hashed list to target specific users. For example, this could look like 'Advertiser has uploaded a hashed list with your information'",
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "const": "user_interaction"
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "value": {
+                                    "description": "User has interacted with specific accounts or topics. For example, this could look like 'You have interacted with business and education topics'",
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "const": "user_activity"
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "value": {
+                                    "description": "User has specific activities. For example, this could look like 'Activity on Facebook such as using Facebook check-in'",
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "const": "user_connection"
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "value": {
+                                    "description": "User is targeted through connections. For example, this could look like 'Connection information, such as the IP address of your device'",
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "const": "user_website_visit"
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "value": {
+                                    "description": "User has visited certain websites. For example, when user clicks on a post and gets redirected to a website that is about higher education or fitness",
                                     "type": "string"
                                 }
                             }
