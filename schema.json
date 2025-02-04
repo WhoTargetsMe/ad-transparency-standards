@@ -665,6 +665,7 @@
                             "if": {
                                 "properties": {
                                     "advertising_platform": {
+                                        "type": "object",
                                         "oneOf": [
                                             {
                                                 "properties": {
@@ -719,6 +720,7 @@
                             "if": {
                                 "properties": {
                                     "advertising_platform": {
+                                        "type": "object",
                                         "oneOf": [
                                             {
                                                 "properties": {
@@ -763,6 +765,7 @@
                             "if": {
                                 "properties": {
                                     "advertising_platform": {
+                                        "type": "object",
                                         "oneOf": [
                                             {
                                                 "properties": {
@@ -801,6 +804,7 @@
                             "if": {
                                 "properties": {
                                     "advertising_platform": {
+                                        "type": "object",
                                         "oneOf": [
                                             {
                                                 "properties": {
