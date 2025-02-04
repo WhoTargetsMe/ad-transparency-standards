@@ -24,8 +24,18 @@
                         },
                         "advertiser_website": {
                             "description": "The website of the entity (e.g. \"https://democrats.org\" - useful to de-duplicate/unify data)",
-                            "type": "string",
-                            "format": "uri"
+                            "oneOf": [
+                                {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                {
+                                    "type": "string",
+                                    "enum": [
+                                        ""
+                                    ]
+                                }
+                            ]
                         },
                         "advertiser_electoral_id": {
                             "description": "An (external) ID held by an electoral regulator (e.g. FEC ID)",
@@ -69,13 +79,33 @@
                         },
                         "ad_library_entity_url": {
                             "description": "A deeplink to the entity in the platform advert library",
-                            "type": "string",
-                            "format": "uri"
+                            "oneOf": [
+                                {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                {
+                                    "type": "string",
+                                    "enum": [
+                                        ""
+                                    ]
+                                }
+                            ]
                         },
                         "ad_library_advert_url": {
                             "description": "A deeplink to the advert in the platform advert library",
-                            "type": "string",
-                            "format": "uri"
+                            "oneOf": [
+                                {
+                                    "type": "string",
+                                    "format": "uri"
+                                },
+                                {
+                                    "type": "string",
+                                    "enum": [
+                                        ""
+                                    ]
+                                }
+                            ]
                         },
                         "advert_copy": {
                             "description": "All text used in the advert",
