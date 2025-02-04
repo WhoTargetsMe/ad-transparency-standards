@@ -30,10 +30,7 @@
                                     "format": "uri"
                                 },
                                 {
-                                    "type": "string",
-                                    "enum": [
-                                        ""
-                                    ]
+                                    "type": "string"
                                 }
                             ]
                         },
@@ -85,10 +82,7 @@
                                     "format": "uri"
                                 },
                                 {
-                                    "type": "string",
-                                    "enum": [
-                                        ""
-                                    ]
+                                    "type": "string"
                                 }
                             ]
                         },
@@ -100,10 +94,7 @@
                                     "format": "uri"
                                 },
                                 {
-                                    "type": "string",
-                                    "enum": [
-                                        ""
-                                    ]
+                                    "type": "string"
                                 }
                             ]
                         },
