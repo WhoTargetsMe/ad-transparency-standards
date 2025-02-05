@@ -132,10 +132,7 @@
                             "description": "TRUE if the advertiser later deleted the advert after it ran",
                             "type": "boolean"
                         }
-                    },
-                    "required": [
-                        "ad_id"
-                    ]
+                    }
                 },
                 "group": {
                     "type": "object",
