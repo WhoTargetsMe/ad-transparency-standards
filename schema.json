@@ -47,7 +47,10 @@
                         },
                         "advertiser_verification_date": {
                             "description": "The date the entity was verified (blank if not, or no verification programme)",
-                            "type": "string",
+                            "type": [
+                                "string",
+                                "null"
+                            ],
                             "format": "date"
                         },
                         "advertiser_geo_scope": {
