@@ -254,7 +254,10 @@
                     },
                     "value": {
                         "description": "The value of the targeting category",
-                        "type": "string"
+                        "type": [
+                            "string",
+                            "object"
+                        ]
                     }
                 },
                 "required": [
