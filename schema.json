@@ -40,7 +40,10 @@
                         },
                         "advertiser_type": {
                             "description": "The type of entity (e.g. candidate, elected official, political party, non-profit, public figure etc)",
-                            "type": "string"
+                            "type": [
+                                "string",
+                                "null"
+                            ]
                         },
                         "advertiser_verification_date": {
                             "description": "The date the entity was verified (blank if not, or no verification programme)",
@@ -80,7 +83,10 @@
                         },
                         "ad_library_advert_url": {
                             "description": "A deeplink to the advert in the platform advert library",
-                            "type": ["string", "null"],
+                            "type": [
+                                "string",
+                                "null"
+                            ],
                             "format": "uri"
                         },
                         "advert_copy": {
