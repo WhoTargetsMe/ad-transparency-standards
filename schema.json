@@ -7,135 +7,125 @@
         "advertiser": {
             "type": "object",
             "properties": {
-                "details": {
-                    "type": "object",
-                    "properties": {
-                        "advertiser_id": {
-                            "description": "An internal ID for the advertiser (e.g. a pageID)",
-                            "type": "string"
-                        },
-                        "advertiser_real_name": {
-                            "description": "The name of the entity running the advert (e.g. \"The Democratic Party\")",
-                            "type": "string"
-                        },
-                        "advertiser_internal_name": {
-                            "description": "An internal name of the entity (e.g. a short url \"democrats\")",
-                            "type": "string"
-                        },
-                        "advertiser_website": {
-                            "description": "The website of the entity (e.g. \"https://democrats.org\" - useful to de-duplicate/unify data)",
-                            "type": [
-                                "string",
-                                "null"
-                            ],
-                            "format": "uri"
-                        },
-                        "advertiser_electoral_id": {
-                            "description": "An (external) ID held by an electoral regulator (e.g. FEC ID)",
-                            "type": "string"
-                        },
-                        "advertiser_legal_status": {
-                            "description": "The legal status of the entity (e.g. individual, company, charity, political party)",
-                            "type": "string"
-                        },
-                        "advertiser_type": {
-                            "description": "The type of entity (e.g. candidate, elected official, political party, non-profit, public figure etc)",
-                            "type": [
-                                "string",
-                                "null"
-                            ]
-                        },
-                        "advertiser_verification_date": {
-                            "description": "The date the entity was verified (blank if not, or no verification programme)",
-                            "type": [
-                                "string",
-                                "null"
-                            ],
-                            "format": "date"
-                        },
-                        "advertiser_geo_scope": {
-                            "description": "Allow the entity to specify where they are active (country, region within country etc)",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "advertiser_id",
-                        "advertiser_real_name",
-                        "advertiser_website"
+                "advertiser_id": {
+                    "description": "An internal ID for the advertiser (e.g. a pageID)",
+                    "type": "string"
+                },
+                "advertiser_real_name": {
+                    "description": "The name of the entity running the advert (e.g. \"The Democratic Party\")",
+                    "type": "string"
+                },
+                "advertiser_internal_name": {
+                    "description": "An internal name of the entity (e.g. a short url \"democrats\")",
+                    "type": "string"
+                },
+                "advertiser_website": {
+                    "description": "The website of the entity (e.g. \"https://democrats.org\" - useful to de-duplicate/unify data)",
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "format": "uri"
+                },
+                "advertiser_electoral_id": {
+                    "description": "An (external) ID held by an electoral regulator (e.g. FEC ID)",
+                    "type": "string"
+                },
+                "advertiser_legal_status": {
+                    "description": "The legal status of the entity (e.g. individual, company, charity, political party)",
+                    "type": "string"
+                },
+                "advertiser_type": {
+                    "description": "The type of entity (e.g. candidate, elected official, political party, non-profit, public figure etc)",
+                    "type": [
+                        "string",
+                        "null"
                     ]
+                },
+                "advertiser_verification_date": {
+                    "description": "The date the entity was verified (blank if not, or no verification programme)",
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "format": "date"
+                },
+                "advertiser_geo_scope": {
+                    "description": "Allow the entity to specify where they are active (country, region within country etc)",
+                    "type": "string"
                 }
-            }
+            },
+            "required": [
+                "advertiser_id",
+                "advertiser_real_name",
+                "advertiser_website"
+            ]
         },
         "advertisement": {
             "type": "object",
             "properties": {
-                "details": {
-                    "type": "object",
-                    "properties": {
-                        "advert_id": {
-                            "description": "An internal ID for the advert",
-                            "type": "string"
-                        },
-                        "ad_library_entity_url": {
-                            "description": "A deeplink to the entity in the platform advert library",
-                            "type": [
-                                "string",
-                                "null"
-                            ],
-                            "format": "uri"
-                        },
-                        "ad_library_advert_url": {
-                            "description": "A deeplink to the advert in the platform advert library",
-                            "type": [
-                                "string",
-                                "null"
-                            ],
-                            "format": "uri"
-                        },
-                        "advert_copy": {
-                            "description": "All text used in the advert",
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        },
-                        "advert_alt_text": {
-                            "description": "All alt text used in images. Can be automatically generated by the advert publisher",
-                            "type": "string"
-                        },
-                        "advert_transcript": {
-                            "description": "An automated or user-provided transcript/subtitles for audio or video adverts",
-                            "type": "string"
-                        },
-                        "advert_media_urls": {
-                            "description": "Link(s) to the media files used in the advert",
-                            "type": "array",
-                            "items": {
-                                "type": "string",
-                                "format": "uri"
-                            }
-                        },
-                        "advert_urls": {
-                            "description": "The external URLs used in the advert (e.g. where the advert clicks through to)",
-                            "type": "array",
-                            "items": {
-                                "type": "string",
-                                "format": "uri"
-                            }
-                        },
-                        "advert_automation": {
-                            "description": "What, if any, features of the advert were automated/automatically generated?",
-                            "type": "string"
-                        },
-                        "advert_automation_test_result": {
-                            "description": "How did this advert perform relative to others it was tested against?",
-                            "type": "string"
-                        },
-                        "advert_deleted": {
-                            "description": "TRUE if the advertiser later deleted the advert after it ran",
-                            "type": "boolean"
-                        }
+                "advert_id": {
+                    "description": "An internal ID for the advert",
+                    "type": "string"
+                },
+                "ad_library_entity_url": {
+                    "description": "A deeplink to the entity in the platform advert library",
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "format": "uri"
+                },
+                "ad_library_advert_url": {
+                    "description": "A deeplink to the advert in the platform advert library",
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "format": "uri"
+                },
+                "advert_copy": {
+                    "description": "All text used in the advert",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
                     }
+                },
+                "advert_alt_text": {
+                    "description": "All alt text used in images. Can be automatically generated by the advert publisher",
+                    "type": "string"
+                },
+                "advert_transcript": {
+                    "description": "An automated or user-provided transcript/subtitles for audio or video adverts",
+                    "type": "string"
+                },
+                "advert_media_urls": {
+                    "description": "Link(s) to the media files used in the advert",
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "format": "uri"
+                    }
+                },
+                "advert_urls": {
+                    "description": "The external URLs used in the advert (e.g. where the advert clicks through to)",
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "format": "uri"
+                    }
+                },
+                "advert_automation": {
+                    "description": "What, if any, features of the advert were automated/automatically generated?",
+                    "type": "string"
+                },
+                "advert_automation_test_result": {
+                    "description": "How did this advert perform relative to others it was tested against?",
+                    "type": "string"
+                },
+                "advert_deleted": {
+                    "description": "TRUE if the advertiser later deleted the advert after it ran",
+                    "type": "boolean"
                 },
                 "group": {
                     "type": "object",
