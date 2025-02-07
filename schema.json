@@ -244,10 +244,7 @@
                     },
                     "value": {
                         "description": "The value of the targeting category",
-                        "type": [
-                            "string",
-                            "object"
-                        ]
+                        "type": "string"
                     }
                 },
                 "required": [
@@ -260,25 +257,64 @@
                         "if": {
                             "properties": {
                                 "type": {
-                                    "const": "geo_location"
+                                    "const": "geo_location_approximate"
                                 }
                             }
                         },
                         "then": {
                             "properties": {
-                                "geo_location_approximate": {
+                                "value": {
                                     "description": "Geolocation data is based on either fuzzified lat-long or IP-derived location",
                                     "type": "boolean"
-                                },
-                                "geo_location_precise": {
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "const": "geo_location_precise"
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "value": {
                                     "description": "Precise geolocation data, as defined by the IAB TCF v2.0",
-                                    "type": "boolean"
-                                },
-                                "geo_location_excluded": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "const": "geo_location_excluded"
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "value": {
                                     "description": "Any geographic exclusions",
                                     "type": "string"
-                                },
-                                "geo_location_unknown_type": {
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "const": "geo_location_unknown_type"
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "value": {
                                     "description": "Other geolocation types, including cases where both APPROXIMATE and PRECISE are used or where APPROXIMATE or PRECISE cannot be determined",
                                     "type": "string"
                                 }
@@ -289,29 +325,81 @@
                         "if": {
                             "properties": {
                                 "type": {
-                                    "const": "remarketing"
+                                    "const": "remarketing_third_party"
                                 }
                             }
                         },
                         "then": {
                             "properties": {
-                                "remarketing_third_party": {
+                                "value": {
                                     "description": "The advert targeting is based on online or offline data about you from someone who may or may not be the advertiser. Value is the name of this entity",
                                     "type": "string"
-                                },
-                                "remarketing_dataset_name": {
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "const": "remarketing_dataset_name"
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "value": {
                                     "description": "A name given to the dataset by the entity above. For example 'Potential customers'",
                                     "type": "string"
-                                },
-                                "remarketing_website_visit": {
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "const": "remarketing_website_visit"
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "value": {
                                     "description": "The advert targeting is based on a previous visit to an advertiser’s website",
-                                    "type": "boolean"
-                                },
-                                "remarketing_exclusions": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "const": "remarketing_exclusions"
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "value": {
                                     "description": "Any advert remarketing exclusions",
                                     "type": "string"
-                                },
-                                "remarketing_unknown_type": {
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "const": "remarketing_unknown_type"
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "value": {
                                     "description": "Other remarketing types not listed or undetermined. For example, UPLOADED or WEBSITE_VISIT cannot be determined",
                                     "type": "string"
                                 }
@@ -328,7 +416,7 @@
                         },
                         "then": {
                             "properties": {
-                                "user_characteristic_gender": {
+                                "value": {
                                     "description": "The advert targeting criteria is (partially) based on either declared or inferred gender",
                                     "type": "string"
                                 }
@@ -345,7 +433,7 @@
                         },
                         "then": {
                             "properties": {
-                                "user_characteristic_age_group": {
+                                "value": {
                                     "description": "The advert targeting criteria is (partially) based on either declared or inferred age group",
                                     "type": "string"
                                 }
@@ -362,7 +450,7 @@
                         },
                         "then": {
                             "properties": {
-                                "user_characteristic_follower": {
+                                "value": {
                                     "description": "The user is following specific account. For example, this could look like 'You are similar to the followers of UNESCO'",
                                     "type": "string"
                                 }
@@ -379,7 +467,7 @@
                         },
                         "then": {
                             "properties": {
-                                "user_characteristic_country": {
+                                "value": {
                                     "description": "User country",
                                     "type": "string"
                                 }
@@ -396,7 +484,7 @@
                         },
                         "then": {
                             "properties": {
-                                "user_characteristic_language": {
+                                "value": {
                                     "description": "The advert targeting criteria is (partially) based on either declared or inferred user language(s)",
                                     "type": "string"
                                 }
@@ -413,7 +501,7 @@
                         },
                         "then": {
                             "properties": {
-                                "user_characteristic_exclusion": {
+                                "value": {
                                     "description": "Any exclusions based on user characteristics",
                                     "type": "string"
                                 }
@@ -430,7 +518,7 @@
                         },
                         "then": {
                             "properties": {
-                                "user_characteristic_unknown_type": {
+                                "value": {
                                     "description": "Other user characteristics not listed",
                                     "type": "string"
                                 }
@@ -441,17 +529,30 @@
                         "if": {
                             "properties": {
                                 "type": {
-                                    "const": "user_interest"
+                                    "const": "user_interest_excluded"
                                 }
                             }
                         },
                         "then": {
                             "properties": {
-                                "user_interest_excluded": {
+                                "value": {
                                     "description": "User interests that were excluded from targeting",
                                     "type": "string"
-                                },
-                                "user_interest_used": {
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "if": {
+                            "properties": {
+                                "type": {
+                                    "const": "user_interest_used"
+                                }
+                            }
+                        },
+                        "then": {
+                            "properties": {
+                                "value": {
                                     "description": "The advert targeting criteria is (partially) based on either declared or inferred user interests",
                                     "type": "string"
                                 }
@@ -552,7 +653,11 @@
                             }
                         },
                         "then": {
-                            "properties": {}
+                            "properties": {
+                                "value": {
+                                    "type": "string"
+                                }
+                            }
                         }
                     }
                 ]
