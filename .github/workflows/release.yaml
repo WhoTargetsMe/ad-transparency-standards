@@ -1,6 +1,8 @@
 name: release schema
 
 on:
+  pull_request:
+    branches: [main]
   push:
     paths:
       - "schema.json"
