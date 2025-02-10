@@ -768,15 +768,14 @@
                             "properties": {
                                 "reactions": {
                                     "type": "number",
-                                    "description": "This is for generic counted reactions, i.e. likes/love/haha, etc",
-                                    "additionalProperties": false
+                                    "description": "This is for generic counted reactions, i.e. likes/love/haha, etc"
                                 },
                                 "shares": {
                                     "type": "number",
                                     "description": "Share is share and retweet"
                                 },
                                 "comments": {
-                                    "description": "Comment is comment, quote_retweet",
+                                    "description": "Comment is comment, replies, quote_retweet",
                                     "type": "number"
                                 },
                                 "bookmarks": {
