@@ -800,10 +800,16 @@
                                     }
                                 },
                                 "bookmarks": {
-                                    "type": "number"
+                                    "type": [
+                                        "number",
+                                        "null"
+                                    ]
                                 },
                                 "views": {
-                                    "type": "number"
+                                    "type": [
+                                        "number",
+                                        "null"
+                                    ]
                                 },
                                 "additionalProperties": true
                             }
