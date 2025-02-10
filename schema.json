@@ -763,41 +763,21 @@
                             "type": "number"
                         },
                         "engagement_social": {
-                            "description": "The social engagement with the advert, presented as an array (likes/shares/comments if these features are available)",
+                            "description": "The social engagement with the advert, presented as an object (likes/shares/comments if these features are available)",
                             "type": "object",
                             "properties": {
                                 "reactions": {
-                                    "type": "object",
+                                    "type": "number",
                                     "description": "This is for generic counted reactions, i.e. likes/love/haha, etc",
-                                    "patternProperties": {
-                                        "^.*$": {
-                                            "type": "number"
-                                        }
-                                    },
                                     "additionalProperties": false
                                 },
                                 "shares": {
-                                    "type": "object",
-                                    "properties": {
-                                        "name": {
-                                            "description": "Name could be: share, retweet or post or something else platform specific",
-                                            "type": "string"
-                                        },
-                                        "value": {
-                                            "type": "number"
-                                        }
-                                    }
+                                    "type": "number",
+                                    "description": "Share is share and retweet"
                                 },
                                 "comments": {
-                                    "properties": {
-                                        "name": {
-                                            "description": "Name could be: comment, quote_retweet",
-                                            "type": "string"
-                                        },
-                                        "value": {
-                                            "type": "number"
-                                        }
-                                    }
+                                    "description": "Comment is comment, quote_retweet",
+                                    "type": "number"
                                 },
                                 "bookmarks": {
                                     "type": [
