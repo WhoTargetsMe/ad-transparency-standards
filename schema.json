@@ -335,6 +335,18 @@
                                 "description": "User has visited certain websites. For example, when user clicks on a post and gets redirected to a website that is about higher education or fitness"
                             },
                             {
+                                "const": "context_used",
+                                "description": "The advert targeting criteria is (partially) based on either declared or inferred context. Value is the context(s), such as the website(s) or networks being targeted. For instance, in the case of YouTube, context can be the search term that triggered the advert being shown to the user"
+                            },
+                            {
+                                "const": "audience_size_lower_bound",
+                                "description": "Lower bound of the estimated target audience size"
+                            },
+                            {
+                                "const": "audience_size_upper_bound",
+                                "description": "Upper bound of the estimated target audience size"
+                            },
+                            {
                                 "const": "other",
                                 "description": "Any other category that is not specified here"
                             }
