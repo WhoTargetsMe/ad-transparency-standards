@@ -4,6 +4,11 @@
     "description": "A schema for how political advertising data is presented to increase comprehension, trust, interoperability, and quality of analysis.",
     "type": "object",
     "properties": {
+        "schemaVersion": {
+            "description": "The version of the schema defined in this document",
+            "type": "string",
+            "const": "1.0.0"
+        },
         "advertiser": {
             "type": "object",
             "properties": {
