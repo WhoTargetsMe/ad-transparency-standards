@@ -12,120 +12,125 @@
         "advertiser": {
             "type": "object",
             "properties": {
-                "details": {
-                    "type": "object",
-                    "properties": {
-                        "advertiser_id": {
-                            "description": "An internal ID for the advertiser (e.g. a pageID)",
-                            "type": "string"
-                        },
-                        "advertiser_real_name": {
-                            "description": "The name of the entity running the advert (e.g. \"The Democratic Party\")",
-                            "type": "string"
-                        },
-                        "advertiser_internal_name": {
-                            "description": "An internal name of the entity (e.g. a short url \"democrats\")",
-                            "type": "string"
-                        },
-                        "advertiser_website": {
-                            "description": "The website of the entity (e.g. \"https://democrats.org\" - useful to de-duplicate/unify data)",
-                            "type": "string",
-                            "format": "uri"
-                        },
-                        "advertiser_electoral_id": {
-                            "description": "An (external) ID held by an electoral regulator (e.g. FEC ID)",
-                            "type": "string"
-                        },
-                        "advertiser_legal_status": {
-                            "description": "The legal status of the entity (e.g. individual, company, charity, political party)",
-                            "type": "string"
-                        },
-                        "advertiser_type": {
-                            "description": "The type of entity (e.g. candidate, elected official, political party, non-profit, public figure etc)",
-                            "type": "string"
-                        },
-                        "advertiser_verification_date": {
-                            "description": "The date the entity was verified (blank if not, or no verification programme)",
-                            "type": "string",
-                            "format": "date"
-                        },
-                        "advertiser_geo_scope": {
-                            "description": "Allow the entity to specify where they are active (country, region within country etc)",
-                            "type": "string"
-                        }
-                    },
-                    "required": [
-                        "advertiser_id",
-                        "advertiser_real_name",
-                        "advertiser_website"
+                "advertiser_id": {
+                    "description": "An internal ID for the advertiser (e.g. a pageID)",
+                    "type": "string"
+                },
+                "advertiser_real_name": {
+                    "description": "The name of the entity running the advert (e.g. \"The Democratic Party\")",
+                    "type": "string"
+                },
+                "advertiser_internal_name": {
+                    "description": "An internal name of the entity (e.g. a short url \"democrats\")",
+                    "type": "string"
+                },
+                "advertiser_website": {
+                    "description": "The website of the entity (e.g. \"https://democrats.org\" - useful to de-duplicate/unify data)",
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "format": "uri"
+                },
+                "advertiser_electoral_id": {
+                    "description": "An (external) ID held by an electoral regulator (e.g. FEC ID)",
+                    "type": "string"
+                },
+                "advertiser_legal_status": {
+                    "description": "The legal status of the entity (e.g. individual, company, charity, political party)",
+                    "type": "string"
+                },
+                "advertiser_type": {
+                    "description": "The type of entity (e.g. candidate, elected official, political party, non-profit, public figure etc)",
+                    "type": [
+                        "string",
+                        "null"
                     ]
+                },
+                "advertiser_verification_date": {
+                    "description": "The date the entity was verified (blank if not, or no verification programme)",
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "format": "date"
+                },
+                "advertiser_geo_scope": {
+                    "description": "Allow the entity to specify where they are active (country, region within country etc)",
+                    "type": "string"
                 }
-            }
+            },
+            "required": [
+                "advertiser_id",
+                "advertiser_real_name",
+                "advertiser_website"
+            ]
         },
         "advertisement": {
             "type": "object",
             "properties": {
-                "details": {
-                    "type": "object",
-                    "properties": {
-                        "advert_id": {
-                            "description": "An internal ID for the advert",
-                            "type": "string"
-                        },
-                        "ad_library_entity_url": {
-                            "description": "A deeplink to the entity in the platform advert library",
-                            "type": "string",
-                            "format": "uri"
-                        },
-                        "ad_library_advert_url": {
-                            "description": "A deeplink to the advert in the platform advert library",
-                            "type": "string",
-                            "format": "uri"
-                        },
-                        "advert_copy": {
-                            "description": "All text used in the advert",
-                            "type": "string"
-                        },
-                        "advert_alt_text": {
-                            "description": "All alt text used in images. Can be automatically generated by the advert publisher",
-                            "type": "string"
-                        },
-                        "advert_transcript": {
-                            "description": "An automated or user-provided transcript/subtitles for audio or video adverts",
-                            "type": "string"
-                        },
-                        "advert_media_urls": {
-                            "description": "Link(s) to the media files used in the advert",
-                            "type": "array",
-                            "items": {
-                                "type": "string",
-                                "format": "uri"
-                            }
-                        },
-                        "advert_urls": {
-                            "description": "The external URLs used in the advert (e.g. where the advert clicks through to)",
-                            "type": "array",
-                            "items": {
-                                "type": "string",
-                                "format": "uri"
-                            }
-                        },
-                        "advert_automation": {
-                            "description": "What, if any, features of the advert were automated/automatically generated?",
-                            "type": "string"
-                        },
-                        "advert_automation_test_result": {
-                            "description": "How did this advert perform relative to others it was tested against?",
-                            "type": "string"
-                        },
-                        "advert_deleted": {
-                            "description": "TRUE if the advertiser later deleted the advert after it ran",
-                            "type": "boolean"
-                        }
-                    },
-                    "required": [
-                        "ad_id"
-                    ]
+                "advert_id": {
+                    "description": "An internal ID for the advert",
+                    "type": "string"
+                },
+                "ad_library_entity_url": {
+                    "description": "A deeplink to the entity in the platform advert library",
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "format": "uri"
+                },
+                "ad_library_advert_url": {
+                    "description": "A deeplink to the advert in the platform advert library",
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "format": "uri"
+                },
+                "advert_copy": {
+                    "description": "All text used in the advert",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "advert_alt_text": {
+                    "description": "All alt text used in images. Can be automatically generated by the advert publisher",
+                    "type": "string"
+                },
+                "advert_transcript": {
+                    "description": "An automated or user-provided transcript/subtitles for audio or video adverts",
+                    "type": "string"
+                },
+                "advert_media_urls": {
+                    "description": "Link(s) to the media files used in the advert",
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "format": "uri"
+                    }
+                },
+                "advert_urls": {
+                    "description": "The external URLs used in the advert (e.g. where the advert clicks through to)",
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "format": "uri"
+                    }
+                },
+                "advert_automation": {
+                    "description": "What, if any, features of the advert were automated/automatically generated?",
+                    "type": "string"
+                },
+                "advert_automation_test_result": {
+                    "description": "How did this advert perform relative to others it was tested against?",
+                    "type": "string"
+                },
+                "advert_deleted": {
+                    "description": "TRUE if the advertiser later deleted the advert after it ran",
+                    "type": "boolean"
                 },
                 "group": {
                     "type": "object",
@@ -240,7 +245,117 @@
                     },
                     "type": {
                         "description": "Multi-platform category of the targeting category",
-                        "type": "string"
+                        "type": "string",
+                        "oneOf": [
+                            {
+                                "const": "geo_location_approximate",
+                                "description": "Geolocation data is based on either fuzzified lat-long or IP-derived location"
+                            },
+                            {
+                                "const": "geo_location_precise",
+                                "description": "Precise geolocation data, as defined by the IAB TCF v2.0"
+                            },
+                            {
+                                "const": "geo_location_excluded",
+                                "description": "Any geographic exclusions"
+                            },
+                            {
+                                "const": "geo_location_unknown_type",
+                                "description": "Other geolocation types, including cases where both APPROXIMATE and PRECISE are used or where APPROXIMATE or PRECISE cannot be determined"
+                            },
+                            {
+                                "const": "remarketing_third_party",
+                                "description": "The advert targeting is based on online or offline data about you from someone who may or may not be the advertiser. Value is the name of this entity"
+                            },
+                            {
+                                "const": "remarketing_dataset_name",
+                                "description": "A name given to the dataset by the entity above. For example 'Potential customers'"
+                            },
+                            {
+                                "const": "remarketing_website_visit",
+                                "description": "The advert targeting is based on a previous visit to an advertiser’s website"
+                            },
+                            {
+                                "const": "remarketing_exclusions",
+                                "description": "Any advert remarketing exclusions"
+                            },
+                            {
+                                "const": "remarketing_unknown_type",
+                                "description": "Other remarketing types not listed or undetermined. For example, UPLOADED or WEBSITE_VISIT cannot be determined"
+                            },
+                            {
+                                "const": "user_characteristic_gender",
+                                "description": "The advert targeting criteria is (partially) based on either declared or inferred gender"
+                            },
+                            {
+                                "const": "user_characteristic_age",
+                                "description": "The advert targeting criteria is (partially) based on either declared or inferred age group"
+                            },
+                            {
+                                "const": "user_characteristic_follower",
+                                "description": "The user is following specific account. For example, this could look like 'You are similar to the followers of UNESCO'"
+                            },
+                            {
+                                "const": "user_characteristic_country",
+                                "description": "User country"
+                            },
+                            {
+                                "const": "user_characteristic_language",
+                                "description": "The advert targeting criteria is (partially) based on either declared or inferred user language(s)"
+                            },
+                            {
+                                "const": "user_characteristic_exclusion",
+                                "description": "Any exclusions based on user characteristics"
+                            },
+                            {
+                                "const": "user_characteristic_unknown_type",
+                                "description": "Other user characteristics not listed"
+                            },
+                            {
+                                "const": "user_interest_excluded",
+                                "description": "User interests that were excluded from targeting"
+                            },
+                            {
+                                "const": "user_interest_used",
+                                "description": "The advert targeting criteria is (partially) based on either declared or inferred user interests"
+                            },
+                            {
+                                "const": "hashed_list",
+                                "description": "Advertiser used a hashed list to target specific users. For example, this could look like 'Advertiser has uploaded a hashed list with your information'"
+                            },
+                            {
+                                "const": "user_interaction",
+                                "description": "User has interacted with specific accounts or topics. For example, this could look like 'You have interacted with business and education topics'"
+                            },
+                            {
+                                "const": "user_activity",
+                                "description": "User has specific activities. For example, this could look like 'Activity on Facebook such as using Facebook check-in'"
+                            },
+                            {
+                                "const": "user_connection",
+                                "description": "User is targeted through connections. For example, this could look like 'Connection information, such as the IP address of your device'"
+                            },
+                            {
+                                "const": "user_website_visit",
+                                "description": "User has visited certain websites. For example, when user clicks on a post and gets redirected to a website that is about higher education or fitness"
+                            },
+                            {
+                                "const": "context_used",
+                                "description": "The advert targeting criteria is (partially) based on either declared or inferred context. Value is the context(s), such as the website(s) or networks being targeted. For instance, in the case of YouTube, context can be the search term that triggered the advert being shown to the user"
+                            },
+                            {
+                                "const": "audience_size_lower_bound",
+                                "description": "Lower bound of the estimated target audience size"
+                            },
+                            {
+                                "const": "audience_size_upper_bound",
+                                "description": "Upper bound of the estimated target audience size"
+                            },
+                            {
+                                "const": "other",
+                                "description": "Any other category that is not specified here"
+                            }
+                        ]
                     },
                     "value": {
                         "description": "The value of the targeting category",
@@ -251,307 +366,6 @@
                     "name",
                     "type",
                     "value"
-                ],
-                "allOf": [
-                    {
-                        "if": {
-                            "properties": {
-                                "type": {
-                                    "const": "geo_location"
-                                }
-                            }
-                        },
-                        "then": {
-                            "properties": {
-                                "geo_location_approximate": {
-                                    "description": "Geolocation data is based on either fuzzified lat-long or IP-derived location",
-                                    "type": "boolean"
-                                },
-                                "geo_location_precise": {
-                                    "description": "Precise geolocation data, as defined by the IAB TCF v2.0",
-                                    "type": "boolean"
-                                },
-                                "geo_location_excluded": {
-                                    "description": "Any geographic exclusions",
-                                    "type": "string"
-                                },
-                                "geo_location_unknown_type": {
-                                    "description": "Other geolocation types, including cases where both APPROXIMATE and PRECISE are used or where APPROXIMATE or PRECISE cannot be determined",
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "if": {
-                            "properties": {
-                                "type": {
-                                    "const": "remarketing"
-                                }
-                            }
-                        },
-                        "then": {
-                            "properties": {
-                                "remarketing_third_party": {
-                                    "description": "The advert targeting is based on online or offline data about you from someone who may or may not be the advertiser. Value is the name of this entity",
-                                    "type": "string"
-                                },
-                                "remarketing_dataset_name": {
-                                    "description": "A name given to the dataset by the entity above. For example 'Potential customers'",
-                                    "type": "string"
-                                },
-                                "remarketing_website_visit": {
-                                    "description": "The advert targeting is based on a previous visit to an advertiser’s website",
-                                    "type": "boolean"
-                                },
-                                "remarketing_exclusions": {
-                                    "description": "Any advert remarketing exclusions",
-                                    "type": "string"
-                                },
-                                "remarketing_unknown_type": {
-                                    "description": "Other remarketing types not listed or undetermined. For example, UPLOADED or WEBSITE_VISIT cannot be determined",
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "if": {
-                            "properties": {
-                                "type": {
-                                    "const": "user_characteristic_gender"
-                                }
-                            }
-                        },
-                        "then": {
-                            "properties": {
-                                "user_characteristic_gender": {
-                                    "description": "The advert targeting criteria is (partially) based on either declared or inferred gender",
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "if": {
-                            "properties": {
-                                "type": {
-                                    "const": "user_characteristic_age"
-                                }
-                            }
-                        },
-                        "then": {
-                            "properties": {
-                                "user_characteristic_age_group": {
-                                    "description": "The advert targeting criteria is (partially) based on either declared or inferred age group",
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "if": {
-                            "properties": {
-                                "type": {
-                                    "const": "user_characteristic_follower"
-                                }
-                            }
-                        },
-                        "then": {
-                            "properties": {
-                                "user_characteristic_follower": {
-                                    "description": "The user is following specific account. For example, this could look like 'You are similar to the followers of UNESCO'",
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "if": {
-                            "properties": {
-                                "type": {
-                                    "const": "user_characteristic_country"
-                                }
-                            }
-                        },
-                        "then": {
-                            "properties": {
-                                "user_characteristic_country": {
-                                    "description": "User country",
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "if": {
-                            "properties": {
-                                "type": {
-                                    "const": "user_characteristic_language"
-                                }
-                            }
-                        },
-                        "then": {
-                            "properties": {
-                                "user_characteristic_language": {
-                                    "description": "The advert targeting criteria is (partially) based on either declared or inferred user language(s)",
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "if": {
-                            "properties": {
-                                "type": {
-                                    "const": "user_characteristic_exclusion"
-                                }
-                            }
-                        },
-                        "then": {
-                            "properties": {
-                                "user_characteristic_exclusion": {
-                                    "description": "Any exclusions based on user characteristics",
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "if": {
-                            "properties": {
-                                "type": {
-                                    "const": "user_characteristic_unknown_type"
-                                }
-                            }
-                        },
-                        "then": {
-                            "properties": {
-                                "user_characteristic_unknown_type": {
-                                    "description": "Other user characteristics not listed",
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "if": {
-                            "properties": {
-                                "type": {
-                                    "const": "user_interest"
-                                }
-                            }
-                        },
-                        "then": {
-                            "properties": {
-                                "user_interest_excluded": {
-                                    "description": "User interests that were excluded from targeting",
-                                    "type": "string"
-                                },
-                                "user_interest_used": {
-                                    "description": "The advert targeting criteria is (partially) based on either declared or inferred user interests",
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "if": {
-                            "properties": {
-                                "type": {
-                                    "const": "hashed_list"
-                                }
-                            }
-                        },
-                        "then": {
-                            "properties": {
-                                "value": {
-                                    "description": "Advertiser used a hashed list to target specific users. For example, this could look like 'Advertiser has uploaded a hashed list with your information'",
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "if": {
-                            "properties": {
-                                "type": {
-                                    "const": "user_interaction"
-                                }
-                            }
-                        },
-                        "then": {
-                            "properties": {
-                                "value": {
-                                    "description": "User has interacted with specific accounts or topics. For example, this could look like 'You have interacted with business and education topics'",
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "if": {
-                            "properties": {
-                                "type": {
-                                    "const": "user_activity"
-                                }
-                            }
-                        },
-                        "then": {
-                            "properties": {
-                                "value": {
-                                    "description": "User has specific activities. For example, this could look like 'Activity on Facebook such as using Facebook check-in'",
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "if": {
-                            "properties": {
-                                "type": {
-                                    "const": "user_connection"
-                                }
-                            }
-                        },
-                        "then": {
-                            "properties": {
-                                "value": {
-                                    "description": "User is targeted through connections. For example, this could look like 'Connection information, such as the IP address of your device'",
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "if": {
-                            "properties": {
-                                "type": {
-                                    "const": "user_website_visit"
-                                }
-                            }
-                        },
-                        "then": {
-                            "properties": {
-                                "value": {
-                                    "description": "User has visited certain websites. For example, when user clicks on a post and gets redirected to a website that is about higher education or fitness",
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    },
-                    {
-                        "if": {
-                            "properties": {
-                                "type": {
-                                    "const": "other"
-                                }
-                            }
-                        },
-                        "then": {
-                            "properties": {}
-                        }
-                    }
                 ]
             }
         },
@@ -655,8 +469,35 @@
                             "type": "number"
                         },
                         "engagement_social": {
-                            "description": "The social engagement with the advert, presented as an array (likes/shares/comments if these features are available)",
-                            "type": "object"
+                            "description": "The social engagement with the advert, presented as an object (likes/shares/comments if these features are available)",
+                            "type": "object",
+                            "properties": {
+                                "reactions": {
+                                    "type": "number",
+                                    "description": "This is for generic counted reactions, i.e. likes/love/haha, etc"
+                                },
+                                "shares": {
+                                    "type": "number",
+                                    "description": "Share is share and retweet"
+                                },
+                                "comments": {
+                                    "description": "Comment is comment, replies, quote_retweet",
+                                    "type": "number"
+                                },
+                                "bookmarks": {
+                                    "type": [
+                                        "number",
+                                        "null"
+                                    ]
+                                },
+                                "views": {
+                                    "type": [
+                                        "number",
+                                        "null"
+                                    ]
+                                },
+                                "additionalProperties": true
+                            }
                         }
                     }
                 },
